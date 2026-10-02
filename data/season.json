@@ -1,0 +1,581 @@
+{
+  "driver": "Ross Ogilvie",
+  "season": 2026,
+  "generated": "2026-10-02 (AEST)",
+  "timezone_note": "Session times are given in JST (UTC+9) with AEST (UTC+10) in brackets where useful.",
+  "unconfirmed_marker": "Anything marked 'unconfirmed' is an inference or comes from a secondary source.",
+  "car": {
+    "make_model": "West Racing Cars v.Granz",
+    "engine": "Toyota M20A-FKS 2.0 L (sealed)",
+    "tyres_2026": "Michelin Pilot Sport GT S9M (dry) / P2L (wet), 18/58-15",
+    "min_race_weight_kg": 690,
+    "number": 213,
+    "car_name_on_entries": [
+      "Shinkoi with COR (Motegi Champion Cup, Jun)",
+      "KATANA1 with COR (MEC120 Rd1 Suzuka)",
+      "shinko1 with COR (MEC120 Rd2 Motegi)"
+    ],
+    "entrant_team": "Circuit Orange Racing (COR)",
+    "mechanics": "T-Style / Kohei Tokumasu",
+    "sources": [
+      "https://www.mr-motegi.jp/result_m/2026/4wheel/ (official result PDFs; copies in sources/)",
+      "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/ (official scanned result PDFs; copies in sources/)"
+    ]
+  },
+  "licence": {
+    "note": "Motorsport Australia International Competition Visa lists 'MOTEGI Champion Cup Race Rd.3 v.Granz' and 'MEC Rd.1 Suzuka'. Ross asked on 21 Aug to add MEC Rd2 Motegi, vGranz Rd.3 Suzuka, MEC Rd3 Okayama and MEC Rd4 Fuji, and chased on 28 Aug; confirmation of the additions was not found (unconfirmed)"
+  },
+  "races": [
+    {
+      "id": "2026-motegi-ccr3-vgranz",
+      "order": 1,
+      "status": "completed",
+      "series": "Motegi Champion Cup Race Rd.3: Motegi-SUGO v.Granz Series Rd.3 & Rd.4 (two sprint races)",
+      "series_id": "motegi-sugo-vgranz",
+      "round": "Motegi Champion Cup Race Rd.3 / v.Granz series Rd.3 (Race 1) and Rd.4 (Race 2)",
+      "circuit_id": "motegi",
+      "dates": {
+        "weekend": "2026-06-27/2026-06-28",
+        "practice": "2026-06-25: Ross practised in the wet (his own email); official session times not found",
+        "qualifying": "2026-06-27 13:45-13:52 JST. The official sheet is headed 'Free practice result' (フリー走行結果), half-wet. Qualifying appears to have been replaced (the Formula Regional qualifying that weekend was cancelled for a typhoon); this is an inference, so unconfirmed",
+        "race": [
+          "Race 1: Sat 2026-06-27, start 14:29:14 JST (15:29 AEST)",
+          "Race 2: Sun 2026-06-28, start 10:20:21 JST (11:20 AEST)"
+        ]
+      },
+      "format": "Sprint races. Race 1 ran 8 laps (half-wet); Race 2 ran 12 laps (wet). The scheduled lap/time limit for this event was not found (the typical Motegi CCR v.Granz format is 10 laps or 30 min: unconfirmed)",
+      "class": "v.Granz",
+      "car_number": 213,
+      "car_name": "Shinkoi with COR",
+      "team": "Circuit Orange Racing (COR)",
+      "drivers": [
+        "Ross Ogilvie"
+      ],
+      "results": {
+        "session_before_race": {
+          "position": "13/14",
+          "best_lap": "2'10.592",
+          "conditions": "Cloudy, half wet"
+        },
+        "race1": {
+          "position": "12th (last of 12 classified; 14 starters/entries)",
+          "laps": 8,
+          "best_lap": "2'09.643 (lap 8)",
+          "gap": "+1'00.398",
+          "conditions": "Cloudy, half wet"
+        },
+        "race2": {
+          "position": "9th of 14 classified",
+          "laps": 12,
+          "best_lap": "2'20.180 (lap 9)",
+          "gap": "+1'40.747",
+          "conditions": "Rain, wet"
+        }
+      },
+      "notes": [
+        "Ross's International Competition Visa lists 'MOTEGI Champion Cup Race Rd.3 v.Granz'.",
+        "YouTube live stream Sat 27 Jun: https://www.youtube.com/live/vKNEJ75jyX8."
+      ],
+      "sources": [
+        "https://www.mr-motegi.jp/result_m/2026/4wheel/ (official result PDFs; copies in sources/)"
+      ]
+    },
+    {
+      "id": "2026-mec120-rd1-suzuka",
+      "order": 2,
+      "status": "completed",
+      "series": "MEC120 (VITA CLUB 120-minute endurance), held within 2026 Suzuka Champion Cup Race Round 3",
+      "series_id": "mec120",
+      "round": "MEC120 Rd.1",
+      "circuit_id": "suzuka",
+      "dates": {
+        "weekend": "2026-07-11/2026-07-12",
+        "practice": "not found",
+        "qualifying": "Sat 2026-07-11 (v.Granz qualifying; session time not legible/not captured)",
+        "race": "Sun 2026-07-12, start 10:34:48 JST (11:34 AEST)"
+      },
+      "format": "120-minute endurance race, VITA-01 and v.Granz in the same race, driver changes",
+      "class": "v.Granz Ama-Ama",
+      "car_number": 213,
+      "car_name": "KATANA1 with COR",
+      "team": "Circuit Orange Racing (COR)",
+      "drivers": [
+        "Kyle Wynne (Driver 1)",
+        "Ross Ogilvie (Driver 2)"
+      ],
+      "results": {
+        "qualifying": {
+          "position": "Ama-Ama class 12th; 26th overall in the v.Granz qualifying",
+          "car_best_lap": "2'17.082 (the sheet does not say which driver set it)",
+          "conditions": "Fine, dry"
+        },
+        "race": {
+          "position": "14th in v.Granz Ama-Ama (19 entries, 17 classified)",
+          "laps": 40,
+          "total_time": "2:01'10.179",
+          "gap": "+2 laps",
+          "best_lap_ross": "2'24.934 (Ross drove 14 laps)",
+          "best_lap_kyle": "2'18.197 (Kyle drove 26 laps)",
+          "conditions": "Fine, dry"
+        }
+      },
+      "notes": [
+        "Results read from scanned official PDFs (OCR plus visual check of the #213 rows)."
+      ],
+      "sources": [
+        "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/ (official scanned result PDFs; copies in sources/)",
+        "https://vita-club.co.jp/mec120/ (2026 MEC120 calendar)"
+      ]
+    },
+    {
+      "id": "2026-mec120-rd2-motegi",
+      "order": 3,
+      "status": "completed",
+      "series": "MEC120, held within 2026 Motegi Champion Cup Race Rd.4",
+      "series_id": "mec120",
+      "round": "MEC120 Rd.2",
+      "circuit_id": "motegi",
+      "dates": {
+        "weekend": "2026-09-12/2026-09-13",
+        "practice": "Sat 2026-09-12 08:30-09:30 JST MEC free practice (half wet)",
+        "qualifying": "Sat 2026-09-12 13:55-14:10 JST, v.Granz official qualifying (dry)",
+        "race": "Sun 2026-09-13, 11:00:00-13:02:10 JST (12:00-14:02 AEST)"
+      },
+      "format": "120-minute endurance race (VITA-01 and v.Granz in the same race). The start was behind the safety car because of the weather",
+      "class": "v.Granz Ama-Ama",
+      "car_number": 213,
+      "car_name": "shinko1 with COR",
+      "team": "Circuit Orange Racing (COR)",
+      "drivers": [
+        "Kyle Wynne (A driver)",
+        "Ross Ogilvie (B driver)"
+      ],
+      "results": {
+        "free_practice": {
+          "ross_best": "2'06.502 (8 laps), 33rd of 99 overall; car best 2'05.744 (Kyle), 11th of 21 in class (from coach bot's timing sheets)"
+        },
+        "qualifying": {
+          "position": "Ama-Ama class 6th (18th of the v.Granz field)",
+          "car_best_lap": "2'03.991 (Kyle Wynne)",
+          "ross_time": "none on the sheet"
+        },
+        "race": {
+          "position": "Not classified. Listed below the finishers line despite 46 laps (36 needed); reason not stated on the sheet",
+          "laps": 46,
+          "total_time": "2:02'03.122",
+          "best_lap_ross": "2'06.495 (Ross drove 16 laps)",
+          "best_lap_kyle": "2'05.867 (Kyle drove 30 laps)",
+          "conditions": "Rain/cloudy, half wet"
+        }
+      },
+      "notes": [
+        "Entry list dated 5 Sep: 44 cars; #213 v.Granz Ama-Ama, entrant Circuit Orange Racing.",
+        "Ross email 15 Sep: 'We qualified Top 6' (matches class P6)."
+      ],
+      "sources": [
+        "https://www.mr-motegi.jp/result_m/2026/4wheel/ (official result PDFs; copies in sources/)",
+        "https://vita-club.co.jp/mec120/ (2026 MEC120 calendar)"
+      ]
+    },
+    {
+      "id": "2026-scr4-suzuka-vgranz",
+      "order": 4,
+      "status": "in progress (race weekend underway as of 2 Oct 2026)",
+      "series": "2026 Suzuka Champion Cup Race (SCR) Round 4, v.Granz class",
+      "series_id": "scr-vgranz",
+      "circuit_id": "suzuka",
+      "round": "SCR Round 4. Ross's calendar calls it 'vGranz Rd.3', which fits: this is the 3rd v.Granz race at Suzuka in 2026 (Rd1, Rd2, Rd4; no v.Granz race at Rd3). That reading is an inference, so unconfirmed",
+      "dates": {
+        "weekend": "2026-10-03/2026-10-04",
+        "practice": "Fri 2026-10-02 special sports driving: FP1 09:10-09:30 and FP2 13:55-14:15 JST (10:10 and 14:55 AEST)",
+        "qualifying": "Sat 2026-10-03 13:10-13:30 JST (14:10 AEST), provisional timetable",
+        "race": "Sun 2026-10-04: 13:10 start procedure, about 13:25 JST race start (14:25 AEST), read from a timetable photo, so unconfirmed"
+      },
+      "format": "Sprint race: 8 laps or 25 minutes",
+      "class": "v.Granz",
+      "car_number": 213,
+      "team": "Circuit Orange Racing (COR)",
+      "drivers": [
+        "Ross Ogilvie"
+      ],
+      "results": {
+        "practice_fri": "Untimed: no transponder in the official sheets. Self-reported pace 2:19-2:22. Fastest timed v.Granz: #81 2:16.101. 24 v.Granz entries."
+      },
+      "notes": [
+        "Coach target lap 2:18 (Ross email 29 Sep).",
+        "#213 was driven by Jure Portelli at SCR Rd1 (Q 2:15.185); not entered in v.Granz at Rd2."
+      ],
+      "sources": [
+        "https://www.suzukacircuit.jp/scr/ (2026 SCR schedule)"
+      ]
+    },
+    {
+      "id": "2026-mec120-rd3-okayama",
+      "order": 5,
+      "status": "upcoming",
+      "series": "MEC120, held within the OKAYAMA Challenge Cup Race Rd.4 meeting",
+      "series_id": "mec120",
+      "round": "MEC120 Rd.3",
+      "circuit_id": "okayama",
+      "dates": {
+        "weekend": "2026-10-10/2026-10-11",
+        "race": "The Okayama provisional calendar marks 'MEC120 10/10' (Saturday), so the race may be on Sat 10 Oct (unconfirmed). Timetable not found"
+      },
+      "format": "120-minute endurance race",
+      "class": "v.Granz Ama-Ama (unconfirmed for this round)",
+      "car_number": "213 (unconfirmed)",
+      "team": "Circuit Orange Racing (unconfirmed)",
+      "drivers": [
+        "Ross Ogilvie",
+        "co-driver unconfirmed"
+      ],
+      "results": {},
+      "sources": [
+        "https://vita-club.co.jp/mec120/ (2026 MEC120 calendar)",
+        "https://www.okayama-international-circuit.jp/race_calendar/2026/2026-4_race.pdf (provisional calendar, 4 Feb 2026 version)"
+      ]
+    },
+    {
+      "id": "2026-sugo-ccr7-vgranz",
+      "order": 6,
+      "status": "upcoming (Ross's entry unconfirmed)",
+      "series": "SUGO Champion Cup Race Series Rd.7: Motegi-SUGO v.Granz Series Rd.5 & Rd.6",
+      "series_id": "motegi-sugo-vgranz",
+      "round": "v.Granz series Rd.5 and Rd.6 (two races)",
+      "circuit_id": "sugo",
+      "dates": {
+        "weekend": "2026-10-24/2026-10-25"
+      },
+      "format": "Sprint races (format not found)",
+      "class": "v.Granz",
+      "car_number": "213 (unconfirmed)",
+      "team": "Circuit Orange Racing (unconfirmed)",
+      "results": {},
+      "notes": [
+        "The match between Ross's calendar block and the SUGO v.Granz double-header is an inference; no entry confirmation found."
+      ],
+      "sources": [
+        "https://www.sportsland-sugo.co.jp/race/13117/ (2026 SUGO Champion Cup Race series)",
+        "https://wakabafj.hatenablog.com/entry/2026/02/18/000328 (fan blog: 2026 VITA/v.Granz calendar; secondary source)"
+      ]
+    },
+    {
+      "id": "2026-scr-final-suzuka",
+      "order": 7,
+      "status": "upcoming (series/entry unconfirmed)",
+      "series": "Probably 2026 Suzuka Champion Cup Race Final Round (Round 5), v.Granz class (unconfirmed)",
+      "series_id": "scr-vgranz",
+      "circuit_id": "suzuka",
+      "dates": {
+        "weekend": "2026-12-05/2026-12-06 (SCR Final Round)"
+      },
+      "class": "v.Granz (unconfirmed)",
+      "results": {},
+      "notes": [
+        "A fan blog lists the v.Granz Suzuka calendar as Rd1 28 Feb-1 Mar, Rd2 13-14 Jun, Rd4 3-4 Oct, Rd5 5-6 Dec (secondary source)."
+      ],
+      "sources": [
+        "https://www.suzukacircuit.jp/scr/ (2026 SCR schedule)",
+        "https://wakabafj.hatenablog.com/entry/2026/02/18/000328 (fan blog: 2026 VITA/v.Granz calendar; secondary source)"
+      ]
+    },
+    {
+      "id": "2026-mec120-rd4-fuji",
+      "order": 8,
+      "status": "upcoming",
+      "series": "MEC120 (final round), held within Fuji Champion Race Series Rd.7 (12-13 Dec)",
+      "series_id": "mec120",
+      "round": "MEC120 Rd.4 (final)",
+      "circuit_id": "fuji",
+      "dates": {
+        "weekend": "2026-12-12/2026-12-13",
+        "race": "Sat 2026-12-12 (MEC120 is the Saturday race per VITA CLUB and FSW). Ross's visa request said 11-12 Dec"
+      },
+      "format": "120-minute endurance race",
+      "class": "v.Granz Ama-Ama (unconfirmed)",
+      "car_number": "213 (unconfirmed)",
+      "team": "Circuit Orange Racing (unconfirmed)",
+      "results": {},
+      "notes": [
+        "No entry found for December."
+      ],
+      "sources": [
+        "https://vita-club.co.jp/mec120/ (2026 MEC120 calendar)",
+        "https://www.fsw.tv/freeinfo/pdf-cms/28fdc65e3980c8838b3da95f43817650634d93c8.pdf (2026 Fuji Champion Race schedule, as of 24 Feb 2026)"
+      ]
+    }
+  ],
+  "circuits": [
+    {
+      "id": "motegi",
+      "official_name": "Mobility Resort Motegi (Road Course); formerly Twin Ring Motegi",
+      "location": "Motegi, Haga District, Tochigi Prefecture, Japan",
+      "length_m": 4801.379,
+      "length_note": "4,801 m on official timing sheets; 4,801.379 m per the coach bot's lap guide",
+      "turns": 14,
+      "direction": "clockwise",
+      "lap_record": {
+        "time": "1:31.379",
+        "driver": "Sena Sakaguchi",
+        "car": "Dallara SF23 (Super Formula)",
+        "year": 2026,
+        "source": "English Wikipedia infobox (race lap record); not verified against an official circuit list"
+      },
+      "website": "https://www.mr-motegi.jp/",
+      "images": [
+        {
+          "file": "images/motegi_track_map.svg",
+          "png": "images/motegi_track_map_1280.png",
+          "source": "https://commons.wikimedia.org/wiki/File:Twin_Ring_Motegi_map-2.svg",
+          "license": "CC BY-SA 3.0",
+          "author": "Ronny Astrada (Indonesia)",
+          "note": "map includes the oval"
+        }
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Mobility_Resort_Motegi",
+        "https://www.mr-motegi.jp/result_m/2026/4wheel/ (official result PDFs; copies in sources/)"
+      ]
+    },
+    {
+      "id": "suzuka",
+      "official_name": "Suzuka Circuit (Suzuka International Racing Course), Full Course",
+      "location": "Suzuka, Mie Prefecture, Japan",
+      "length_m": 5807,
+      "turns": 18,
+      "direction": "figure-of-eight (clockwise start)",
+      "lap_record": {
+        "time": "1:30.965",
+        "driver": "Andrea Kimi Antonelli",
+        "car": "Mercedes-AMG W16 (F1)",
+        "year": 2025,
+        "source": "English Wikipedia infobox (race lap record)"
+      },
+      "website": "https://www.suzukacircuit.jp/",
+      "images": [
+        {
+          "file": "images/suzuka_track_map.svg",
+          "png": "images/suzuka_track_map_1280.png",
+          "source": "https://commons.wikimedia.org/wiki/File:Suzuka_circuit_map--2005.svg",
+          "license": "CC BY-SA 3.0",
+          "author": "Will Pittenger"
+        }
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Suzuka_International_Racing_Course",
+        "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/ (official scanned result PDFs; copies in sources/)"
+      ]
+    },
+    {
+      "id": "okayama",
+      "official_name": "Okayama International Circuit (formerly TI Circuit Aida)",
+      "location": "Mimasaka, Okayama Prefecture, Japan",
+      "length_m": 3703,
+      "turns": 13,
+      "direction": "clockwise",
+      "lap_record": {
+        "time": "1:14.023",
+        "driver": "Michael Schumacher",
+        "car": "Benetton B194 (F1)",
+        "year": 1994,
+        "source": "English Wikipedia infobox (race lap record)"
+      },
+      "website": "https://www.okayama-international-circuit.jp/",
+      "images": [
+        {
+          "file": "images/okayama_track_map.png",
+          "source": "https://commons.wikimedia.org/wiki/File:Circuit_TI_(Aida).png",
+          "license": "Public domain"
+        }
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Okayama_International_Circuit"
+      ]
+    },
+    {
+      "id": "sugo",
+      "official_name": "Sportsland SUGO International Racing Course",
+      "location": "Murata, Shibata District, Miyagi Prefecture, Japan",
+      "length_m": 3586.57,
+      "length_note": "JAF: 3,586.570 m (full course). The SUGO site lists 3,621 m (3,586 m excluding the chicane section). Wikipedia infobox says 3.704 km (conflicts)",
+      "turns": "11 named corners (Super Formula official circuit page); the 2026 SUGO layout PDF numbers turns T1-T13: unconfirmed which count to publish",
+      "direction": "clockwise",
+      "lap_record": {
+        "time": "1:06.350",
+        "driver": "Nick Cassidy",
+        "car": "Dallara SF19 (Super Formula)",
+        "year": 2020,
+        "source": "English Wikipedia infobox (race lap record)"
+      },
+      "website": "https://www.sportsland-sugo.co.jp/",
+      "images": [
+        {
+          "file": "images/sugo_track_map.png",
+          "source": "https://commons.wikimedia.org/wiki/File:Sportsland_Sugo.png",
+          "license": "CC BY-SA 3.0",
+          "author": "Chris Ssk (English Wikipedia)",
+          "note": "older diagram; may not show the current chicane"
+        }
+      ],
+      "sources": [
+        "https://motorsports.jaf.or.jp/course/circuit/sugo",
+        "https://sportsland-sugo.co.jp/course/c-racing/",
+        "https://superformula.net/sf2/circuit/sugo",
+        "https://en.wikipedia.org/wiki/Sportsland_Sugo"
+      ]
+    },
+    {
+      "id": "fuji",
+      "official_name": "Fuji Speedway",
+      "location": "Oyama, Sunto District, Shizuoka Prefecture, Japan",
+      "length_m": 4563,
+      "turns": 16,
+      "direction": "clockwise",
+      "lap_record": {
+        "time": "1:18.426",
+        "driver": "Felipe Massa",
+        "car": "Ferrari F2008 (F1)",
+        "year": 2008,
+        "source": "English Wikipedia infobox (race lap record)"
+      },
+      "website": "https://www.fsw.tv/",
+      "images": [
+        {
+          "file": "images/fuji_track_map.svg",
+          "png": "images/fuji_track_map_1280.png",
+          "source": "https://commons.wikimedia.org/wiki/File:Fuji.svg",
+          "license": "CC BY-SA 3.0",
+          "author": "Will Pittenger"
+        }
+      ],
+      "sources": [
+        "https://en.wikipedia.org/wiki/Fuji_Speedway"
+      ]
+    }
+  ],
+  "series": [
+    {
+      "id": "mec120",
+      "name": "MEC120 (MEC 120 Minutes Endurance Challenge)",
+      "organiser": "VITA CLUB (run inside each circuit's club race meeting)",
+      "classes": [
+        "v.Granz Pro-Ama",
+        "v.Granz Ama-Ama",
+        "VITA-01 Pro-Ama",
+        "VITA-01 Ama-Ama"
+      ],
+      "ross_class": "v.Granz Ama-Ama",
+      "calendar_2026": [
+        {
+          "round": 1,
+          "dates": "2026-07-11/12",
+          "circuit": "suzuka",
+          "host_event": "Suzuka Champion Cup Race Round 3"
+        },
+        {
+          "round": 2,
+          "dates": "2026-09-12/13",
+          "circuit": "motegi",
+          "host_event": "Motegi Champion Cup Race Rd.4"
+        },
+        {
+          "round": 3,
+          "dates": "2026-10-10/11",
+          "circuit": "okayama",
+          "host_event": "OKAYAMA Challenge Cup Race Rd.4 (MEC on 10 Oct per provisional calendar)"
+        },
+        {
+          "round": 4,
+          "dates": "2026-12-12",
+          "circuit": "fuji",
+          "host_event": "Fuji Champion Race Series Rd.7 (12-13 Dec; MEC120 Saturday)"
+        }
+      ],
+      "sources": [
+        "https://vita-club.co.jp/mec120/ (2026 MEC120 calendar)",
+        "https://www.fmotor.jp/2026-rinoa-racing-entries-mec120",
+        "https://www.okayama-international-circuit.jp/race_calendar/2026/2026-4_race.pdf (provisional calendar, 4 Feb 2026 version)",
+        "https://www.fsw.tv/freeinfo/pdf-cms/28fdc65e3980c8838b3da95f43817650634d93c8.pdf (2026 Fuji Champion Race schedule, as of 24 Feb 2026)"
+      ]
+    },
+    {
+      "id": "motegi-sugo-vgranz",
+      "name": "Motegi-SUGO v.Granz Series (もてぎ・菅生 v.Granzシリーズ): v.Granz sprint class inside the Motegi Champion Cup Race and SUGO Champion Cup Race meetings",
+      "what_champions_cup_means": "The 'Champions Cup' Ross named is the circuit-run 'Champion Cup Race' clubman meetings. Ross's June Motegi race was 'MOTEGI Champion Cup Race Rd.3 v.Granz' (his visa wording), which counted as Rd.3 and Rd.4 of the Motegi-SUGO v.Granz Series (official result footer).",
+      "calendar_2026": [
+        {
+          "rounds": "1-2",
+          "dates": "2026-03-14/15",
+          "circuit": "motegi",
+          "host_event": "Motegi Champion Cup Race Rd.1"
+        },
+        {
+          "rounds": "3-4",
+          "dates": "2026-06-27/28",
+          "circuit": "motegi",
+          "host_event": "Motegi Champion Cup Race Rd.3"
+        },
+        {
+          "rounds": "5-6",
+          "dates": "2026-10-24/25",
+          "circuit": "sugo",
+          "host_event": "SUGO Champion Cup Race Series Rd.7"
+        }
+      ],
+      "format": "Typically 10 laps or 30 min, 2 races per weekend, points 20-15-12... +1 for pole (coach bot dossier citing the 2026 Motegi Champion Cup special regulations; unconfirmed for SUGO)",
+      "sources": [
+        "https://www.mr-motegi.jp/result_m/2026/4wheel/ (official result PDFs; copies in sources/)",
+        "https://www.sportsland-sugo.co.jp/race/13117/ (2026 SUGO Champion Cup Race series)",
+        "https://wakabafj.hatenablog.com/entry/2026/02/18/000328 (fan blog: 2026 VITA/v.Granz calendar; secondary source)"
+      ]
+    },
+    {
+      "id": "scr-vgranz",
+      "name": "Suzuka Champion Cup Race (SCR), v.Granz class",
+      "organiser": "Suzuka Circuit (Mobilityland)",
+      "calendar_2026_scr": [
+        {
+          "round": 1,
+          "dates": "2026-02-28/03-01",
+          "vgranz": true
+        },
+        {
+          "round": 2,
+          "dates": "2026-06-13/14",
+          "vgranz": true
+        },
+        {
+          "round": 3,
+          "dates": "2026-07-11/12",
+          "vgranz": "no sprint race; MEC120 Rd.1 held here"
+        },
+        {
+          "round": 4,
+          "dates": "2026-10-03/04",
+          "vgranz": true
+        },
+        {
+          "round": "Final (5)",
+          "dates": "2026-12-05/06",
+          "vgranz": "per fan blog (unconfirmed)"
+        }
+      ],
+      "format_rd4": "8 laps or 25 min (timetable photo)",
+      "sources": [
+        "https://www.suzukacircuit.jp/scr/ (2026 SCR schedule)",
+        "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/ (official scanned result PDFs; copies in sources/)",
+        "https://wakabafj.hatenablog.com/entry/2026/02/18/000328 (fan blog: 2026 VITA/v.Granz calendar; secondary source)"
+      ]
+    }
+  ],
+  "source_index": {
+    "motegi_res": "https://www.mr-motegi.jp/result_m/2026/4wheel/ (official result PDFs; copies in sources/)",
+    "suzuka_res": "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/ (official scanned result PDFs; copies in sources/)",
+    "scr_cal": "https://www.suzukacircuit.jp/scr/ (2026 SCR schedule)",
+    "mec_cal": "https://vita-club.co.jp/mec120/ (2026 MEC120 calendar)",
+    "sugo_cal": "https://www.sportsland-sugo.co.jp/race/13117/ (2026 SUGO Champion Cup Race series)",
+    "oka_cal": "https://www.okayama-international-circuit.jp/race_calendar/2026/2026-4_race.pdf (provisional calendar, 4 Feb 2026 version)",
+    "fsw_cal": "https://www.fsw.tv/freeinfo/pdf-cms/28fdc65e3980c8838b3da95f43817650634d93c8.pdf (2026 Fuji Champion Race schedule, as of 24 Feb 2026)",
+    "blog": "https://wakabafj.hatenablog.com/entry/2026/02/18/000328 (fan blog: 2026 VITA/v.Granz calendar; secondary source)"
+  }
+}

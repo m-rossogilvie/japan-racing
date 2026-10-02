@@ -1,0 +1,14 @@
+{
+  "name": "japan-racing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ross Ogilvie's 2026 Japan motor-racing season, in the Shinkō1 brand.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node scripts/check.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

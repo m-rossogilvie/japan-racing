@@ -1,0 +1,65 @@
+[
+  {
+    "circuit": "okayama",
+    "files": [
+      "okayama_track_map.png"
+    ],
+    "commons_page": "https://commons.wikimedia.org/wiki/File:Circuit_TI_(Aida).png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Circuit_TI_%28Aida%29.png",
+    "license": "Public domain",
+    "license_url": null,
+    "author": null,
+    "attribution_required": "false"
+  },
+  {
+    "circuit": "fuji",
+    "files": [
+      "fuji_track_map.svg",
+      "fuji_track_map_1280.png"
+    ],
+    "commons_page": "https://commons.wikimedia.org/wiki/File:Fuji.svg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Fuji.svg",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Will Pittenger",
+    "attribution_required": "true"
+  },
+  {
+    "circuit": "sugo",
+    "files": [
+      "sugo_track_map.png"
+    ],
+    "commons_page": "https://commons.wikimedia.org/wiki/File:Sportsland_Sugo.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Sportsland_Sugo.png",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "The original uploader was Chris Ssk at English Wikipedia.\n\n(Original text: Chris Ssk)",
+    "attribution_required": "true"
+  },
+  {
+    "circuit": "suzuka",
+    "files": [
+      "suzuka_track_map.svg",
+      "suzuka_track_map_1280.png"
+    ],
+    "commons_page": "https://commons.wikimedia.org/wiki/File:Suzuka_circuit_map--2005.svg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Suzuka_circuit_map--2005.svg",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Will Pittenger",
+    "attribution_required": "true"
+  },
+  {
+    "circuit": "motegi",
+    "files": [
+      "motegi_track_map.svg",
+      "motegi_track_map_1280.png"
+    ],
+    "commons_page": "https://commons.wikimedia.org/wiki/File:Twin_Ring_Motegi_map-2.svg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Twin_Ring_Motegi_map-2.svg",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "author": "Ronny Astrada (Indonesia)",
+    "attribution_required": "true"
+  }
+]
