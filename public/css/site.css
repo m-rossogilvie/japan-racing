@@ -65,6 +65,10 @@ html {
   -webkit-text-size-adjust: 100%;
   scroll-padding-top: calc(var(--stick) + 3.25rem);
   --stick: 4.5rem;
+  --gutter: 1rem;
+  /* Safety net only. iOS scrolls the document element, so clip on body alone does not stop a sideways swipe. The layout below is sized so this is not what keeps the page in the screen. */
+  overflow-x: clip;
+  max-width: 100%;
 }
 
 html[lang="ja"] body {
@@ -79,7 +83,7 @@ html[lang="ja"] :is(h1, h2, h3, .circuit) {
 }
 
 html[lang="ja"] :is(.sheet, .time, .lap, .when, .when-lg, .count) {
-  overflow-wrap: normal;
+  overflow-wrap: anywhere;
   word-break: keep-all;
   line-break: strict;
 }
@@ -91,6 +95,9 @@ html[lang="ja"] .sheet :is(td.c-name, td.c-drivers) {
 body {
   margin: 0;
   min-height: 100vh;
+  min-height: 100dvh;
+  min-width: 0;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   background: var(--paper);
@@ -100,10 +107,16 @@ body {
   font-size: 1.0625rem;
   line-height: 1.5;
   font-variant-numeric: tabular-nums;
+  overflow-wrap: break-word;
   overflow-x: clip;
 }
 
 main { flex: 1; }
+
+body > * {
+  min-width: 0;
+  max-width: 100%;
+}
 
 img { max-width: 100%; height: auto; }
 
@@ -137,9 +150,12 @@ a:focus-visible {
 .skip:focus { top: 1rem; }
 
 .wrap {
-  width: min(1120px, calc(100% - 2rem));
+  width: min(1120px, calc(100% - 2 * var(--gutter)));
   margin-inline: auto;
+  min-width: 0;
 }
+
+.race-sheet { min-width: 0; max-width: 100%; }
 
 .mast {
   background: var(--ink);
@@ -152,12 +168,17 @@ a:focus-visible {
   align-items: center;
   gap: 0.8rem 1rem;
   padding-block: 0.7rem;
+  min-width: 0;
+  max-width: 100%;
 }
+
+.mast-grid > * { min-width: 0; }
 
 .brand {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  min-width: 0;
   text-decoration: none;
   color: inherit;
 }
@@ -177,6 +198,7 @@ a:focus-visible {
 }
 
 .wordmark {
+  min-width: 0;
   font-weight: 700;
   font-size: clamp(2.1rem, 7vw, 3.6rem);
   letter-spacing: -0.045em;
@@ -300,10 +322,17 @@ a:focus-visible {
   color: var(--ink);
 }
 
+.sheet-menu {
+  flex: none;
+  min-width: 0;
+  max-width: 100%;
+}
+
 .menu-btn {
   margin-left: auto;
   padding-inline: 0.7rem;
   list-style: none;
+  flex: none;
 }
 
 .menu-bars {
@@ -329,15 +358,20 @@ a:focus-visible {
   right: 0;
   bottom: 0;
   left: 0;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
+  overflow-x: clip;
   background: var(--paper);
   color: var(--ink);
 }
 
 .menu-scroll {
   flex: 1;
-  overflow: auto;
+  min-width: 0;
+  overflow-x: clip;
+  overflow-y: auto;
   padding: 0.4rem 1rem 1.2rem;
 }
 
@@ -401,9 +435,10 @@ a:focus-visible {
 
 .menu-race {
   display: grid;
-  grid-template-columns: 2.2rem 1fr auto;
+  grid-template-columns: 2.2rem minmax(0, 1fr) auto;
   gap: 0.15rem 0.7rem;
   align-items: center;
+  min-width: 0;
   min-height: 44px;
   padding: 0.45rem 0;
   border-top: 1px solid var(--ink);
@@ -412,6 +447,14 @@ a:focus-visible {
 }
 
 .menu-race.is-spot { box-shadow: inset 4px 0 0 var(--red); padding-left: 0.55rem; }
+
+.menu-race-copy { min-width: 0; }
+
+.menu-race-name,
+.menu-race-sub {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
 
 .menu-race-name {
   font-weight: 700;
@@ -471,6 +514,7 @@ a:focus-visible {
 
 .lead-grid {
   display: grid;
+  min-width: 0;
   gap: 0.15rem 2.5rem;
   padding-block: 1.4rem 1.8rem;
 }
@@ -498,6 +542,8 @@ a:focus-visible {
 .section-title,
 .race-head h1 {
   margin: 0;
+  max-width: 100%;
+  overflow-wrap: break-word;
   font-weight: 700;
   letter-spacing: -0.055em;
   line-height: 0.82;
@@ -588,6 +634,7 @@ a:focus-visible {
 .circuit-link {
   display: grid;
   gap: 0.25rem 1rem;
+  min-width: 0;
   padding: 0.95rem 0;
   border-top: 1px solid var(--ink);
   color: inherit;
@@ -611,6 +658,8 @@ a:focus-visible {
 
 .circuit {
   display: block;
+  max-width: 100%;
+  overflow-wrap: break-word;
   font-weight: 700;
   font-size: clamp(1.55rem, 4vw, 2.15rem);
   letter-spacing: -0.045em;
@@ -688,7 +737,7 @@ a:hover .flag {
 .spec,
 .facts {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
 .spec > div,
@@ -700,9 +749,10 @@ a:hover .flag {
 
 .kv > div {
   display: grid;
-  grid-template-columns: minmax(7.5rem, 11rem) 1fr;
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
   gap: 0.2rem 1rem;
   align-items: baseline;
+  min-width: 0;
 }
 
 .spec dt,
@@ -751,8 +801,9 @@ h2 {
 .circuit-index { margin-top: 0.4rem; }
 
 .circuit-link {
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: end;
+  min-width: 0;
 }
 
 .crumb {
@@ -800,8 +851,8 @@ h2 {
   background: var(--ink);
   color: var(--paper);
   margin-top: 1.3rem;
-  margin-inline: calc(50% - 50vw);
-  padding: 1.25rem max(1rem, calc((100vw - 1120px) / 2));
+  padding-block: 1.25rem;
+  max-width: 100%;
 }
 
 .panel .session { margin-top: 0; }
@@ -810,7 +861,10 @@ h2 {
   display: grid;
   gap: 1.8rem;
   margin-top: 1.8rem;
+  min-width: 0;
 }
+
+.split > * { min-width: 0; }
 
 .is-position {
   font-weight: 700;
@@ -840,15 +894,20 @@ h2 {
   padding: 0;
   display: grid;
   gap: 0.9rem;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .laps li {
+  min-width: 0;
+  max-width: 100%;
   border-top: 2px solid var(--ink);
   padding-top: 0.5rem;
 }
 
 .who {
   display: block;
+  max-width: 100%;
   font-weight: 700;
   font-size: var(--label);
   letter-spacing: 0.14em;
@@ -857,6 +916,7 @@ h2 {
 
 .time {
   display: block;
+  max-width: 100%;
   margin-top: 0.2rem;
   font-weight: 700;
   font-size: clamp(1.35rem, 3vw, 1.9rem);
@@ -893,13 +953,15 @@ h2 {
 
 .map {
   margin: 1.2rem 0 0;
+  max-width: 100%;
+  min-width: 0;
   border: 1px solid var(--ink);
   background: var(--paper);
 }
 
 .map img {
   display: block;
-  width: auto;
+  width: 100%;
   max-width: 100%;
   height: auto;
   margin-inline: auto;
@@ -962,8 +1024,13 @@ code {
 
 .table-wrap {
   overflow-x: auto;
+  max-width: 100%;
+  min-width: 0;
   margin: 0.6rem 0 1rem;
 }
+
+.session-result,
+.block { min-width: 0; max-width: 100%; }
 
 .sheet {
   width: 100%;
@@ -1061,10 +1128,10 @@ code {
 .vita-card p { margin: 0.3rem 0; }
 
 @media (min-width: 720px) {
-  .wrap { width: min(1120px, calc(100% - 4rem)); }
+  html { --gutter: 2rem; }
   .spec,
-  .facts { grid-template-columns: repeat(4, 1fr); }
-  .laps { grid-template-columns: 1fr 1fr; }
+  .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .laps { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
 }
 
 @media (max-width: 859px) {
@@ -1074,10 +1141,6 @@ code {
     z-index: 30;
   }
   .wordmark { font-size: 1.65rem; }
-  .jump {
-    margin-inline: -1rem;
-    padding-inline: 1rem;
-  }
 }
 
 @media (min-width: 860px) {
@@ -1135,15 +1198,23 @@ code {
 
 [id] { scroll-margin-top: calc(var(--stick) + 3.25rem); }
 
-.jump {
+.jump-stick {
   position: sticky;
   top: var(--stick);
   z-index: 20;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0.35rem 0 0.55rem;
+  background: var(--paper);
+}
+
+.jump {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
   gap: 0.5rem;
-  margin: 0.35rem 0 0.55rem;
+  max-width: 100%;
+  min-width: 0;
   padding-block: 0.4rem;
   overflow-x: auto;
   overscroll-behavior-x: contain;
@@ -1152,6 +1223,15 @@ code {
 }
 
 .jump::-webkit-scrollbar { display: none; }
+
+@media (max-width: 859px) {
+  .wrap > .jump-stick {
+    margin-inline: calc(var(--gutter) * -1);
+    width: calc(100% + 2 * var(--gutter));
+    max-width: calc(100% + 2 * var(--gutter));
+  }
+  .jump { padding-inline: var(--gutter); }
+}
 
 .jump a {
   flex: 0 0 auto;
@@ -1233,8 +1313,8 @@ code {
 body.menu-open { overflow: hidden; }
 
 @media (max-width: 719px) {
-  .kv > div { grid-template-columns: 1fr; }
-  .facts { grid-template-columns: 1fr; }
+  .kv > div { grid-template-columns: minmax(0, 1fr); }
+  .facts { grid-template-columns: minmax(0, 1fr); }
   .spec { grid-template-columns: 1fr 1fr; }
   .allcols {
     display: inline-flex;
@@ -1253,7 +1333,9 @@ body.menu-open { overflow: hidden; }
     accent-color: var(--red);
   }
   .table-wrap {
-    margin-inline: -1rem;
+    margin-inline: calc(var(--gutter) * -1);
+    width: calc(100% + 2 * var(--gutter));
+    max-width: calc(100% + 2 * var(--gutter));
     overscroll-behavior-x: contain;
   }
   .sheet { min-width: 0; }

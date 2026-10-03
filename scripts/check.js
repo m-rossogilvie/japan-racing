@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import playwright from "playwright";
 import { scrubSeason } from "../lib/prepare.js";
 import { extractInstants, hero } from "../lib/time.js";
 import { createServer } from "../server.js";
@@ -234,6 +235,87 @@ assert.match(jaKyle.text, /VITAのレース/);
 
 const missing = await get("/races/nope");
 assert.equal(missing.status, 404);
+
+const { webkit, devices } = playwright;
+const phone = devices["iPhone 14"];
+assert.equal(phone.isMobile, true);
+assert.equal(phone.hasTouch, true);
+assert.equal(phone.deviceScaleFactor, 3);
+assert.equal(phone.viewport.width, 390);
+
+function measureFit() {
+  const inner = window.innerWidth;
+  const scroll = document.documentElement.scrollWidth;
+  const sticky = [];
+  const loose = [];
+  for (const el of document.querySelectorAll("body *")) {
+    const style = getComputedStyle(el);
+    if (style.display === "none" || style.visibility === "hidden") continue;
+    const rect = el.getBoundingClientRect();
+    if (rect.width < 1 && rect.height < 1) continue;
+    const right = rect.right + window.scrollX;
+    const left = rect.left + window.scrollX;
+    if (style.position === "sticky" && (el.scrollWidth > inner + 1 || rect.width > inner + 1)) {
+      sticky.push(`${el.tagName.toLowerCase()}.${String(el.className).slice(0, 40)} sw=${el.scrollWidth} w=${Math.round(rect.width)}`);
+    }
+    if (right <= inner + 1 && left >= -1) continue;
+    let contained = false;
+    for (let node = el.parentElement; node && node !== document.body; node = node.parentElement) {
+      const ox = getComputedStyle(node).overflowX;
+      if (ox === "auto" || ox === "scroll" || ox === "hidden" || ox === "clip") {
+        const box = node.getBoundingClientRect();
+        const boxRight = box.right + window.scrollX;
+        const boxLeft = box.left + window.scrollX;
+        if (boxRight <= inner + 1 && boxLeft >= -1) contained = true;
+        break;
+      }
+    }
+    if (!contained && loose.length < 6) {
+      loose.push(`${el.tagName.toLowerCase()}.${String(el.className).slice(0, 40)} L${Math.round(left)} R${Math.round(right)}`);
+    }
+  }
+  return { inner, scroll, sticky, loose };
+}
+
+const enPaths = [
+  "/",
+  "/circuits",
+  "/kyle-wynne",
+  ...season.races.map((race) => `/races/${race.id}`),
+  ...season.circuits.map((circuit) => `/circuits/${circuit.id}`),
+];
+const urls = enPaths.flatMap((pathname) => (pathname === "/" ? [pathname, "/ja"] : [pathname, `/ja${pathname}`]));
+const browser = await webkit.launch();
+const page = await (await browser.newContext({ ...phone })).newPage();
+const overflows = [];
+for (const url of urls) {
+  await page.goto(base + url, { waitUntil: "load" });
+  await page.evaluate(() => document.fonts.ready);
+  const shots = [];
+  shots.push(["top", await page.evaluate(measureFit)]);
+  await page.evaluate(() => window.scrollTo(0, Math.min(900, document.documentElement.scrollHeight)));
+  shots.push(["scrolled", await page.evaluate(measureFit)]);
+  await page.evaluate(() => {
+    const menu = document.querySelector("#site-menu");
+    if (menu) menu.open = true;
+  });
+  shots.push(["menu", await page.evaluate(measureFit)]);
+  await page.evaluate(() => {
+    const menu = document.querySelector("#site-menu");
+    if (menu) menu.open = false;
+    for (const box of document.querySelectorAll(".allcols input")) box.checked = true;
+  });
+  if (await page.locator(".allcols input").count()) {
+    shots.push(["all-columns", await page.evaluate(measureFit)]);
+  }
+  for (const [state, snap] of shots) {
+    if (snap.inner !== 390 || snap.scroll > snap.inner || snap.sticky.length || snap.loose.length) {
+      overflows.push(`${url} ${state} inner=${snap.inner} scroll=${snap.scroll} sticky=${snap.sticky.join("; ") || "-"} loose=${snap.loose.join("; ") || "-"}`);
+    }
+  }
+}
+await browser.close();
+assert.deepEqual(overflows, [], `iPhone 14 WebKit page overflow:\n${overflows.join("\n")}`);
 
 server.close();
 console.log("check ok");
