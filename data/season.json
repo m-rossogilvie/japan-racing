@@ -13,10 +13,11 @@
     "car_name_on_entries": [
       "Shinkoi with COR (Motegi Champion Cup, Jun)",
       "KATANA1 with COR (MEC120 Rd1 Suzuka)",
-      "shinko1 with COR (MEC120 Rd2 Motegi)"
+      "shinko1 with COR (MEC120 Rd2 Motegi)",
+      "shinko1 with COR (SCR Rd.4 Suzuka)"
     ],
     "entrant_team": "Circuit Orange Racing (COR)",
-    "mechanics": "T-Style / Kohei Tokumasu",
+    "mechanics": "T-Style / Kohei Tokumasu (徳升 広平, romanised, unconfirmed)",
     "sources": [
       "https://www.mr-motegi.jp/result_m/2026/4wheel/ (official result PDFs; copies in sources/)",
       "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/ (official scanned result PDFs; copies in sources/)"
@@ -27,8 +28,87 @@
   },
   "races": [
     {
-      "id": "2026-motegi-ccr3-vgranz",
+      "id": "kyle-2026-fcr-vita-rd1-fuji",
       "order": 1,
+      "status": "completed",
+      "series": "Fuji Champion Race Series Rd.2: FCR-VITA Rd.1",
+      "series_id": "fcr-vita",
+      "circuit_id": "fuji",
+      "round": "Kyle Wynne in VITA-01 #213, Circuit Orange Racing",
+      "dates": {
+        "weekend": "2026-05-09/2026-05-09",
+        "qualifying": "Sat 2026-05-09. Sunny, dry. P10, 1'59.336",
+        "race": "Sat 2026-05-09, start 10:29:47 JST, 10 laps. Sunny, dry"
+      },
+      "format": "VITA sprint, 10 laps",
+      "class": "VITA",
+      "car_number": 213,
+      "car_name": "Circuit Orange Racing VITA (VITA-01)",
+      "team": "Circuit Orange Racing",
+      "drivers": [
+        "Kyle Wynne"
+      ],
+      "results": {
+        "qualifying": {
+          "position": "P10, 1'59.336 (+1.166); 3-place grid drop for leaving the track 3 times",
+          "note": "Actual starting grid slot after the drop was not on the sheets checked (unconfirmed)"
+        },
+        "race": {
+          "position": "P11 of 33 classified, 10 laps, 20'22.239, +25.554",
+          "best_lap_kyle": "2'00.890 (lap 7)",
+          "note": "Post-race black-and-white flag notice for repeated track limits"
+        }
+      },
+      "notes": [
+        "Kyle Wynne's VITA race. He is also Ross Ogilvie's MEC120 co-driver."
+      ],
+      "sources": [
+        "https://www.fsw.tv/motorsports/result/pdf-cms/0ea4c3f3a44574eeb42076dc8a3a1b162fa3ba84.pdf",
+        "https://www.fsw.tv/motorsports/result/pdf-cms/aaed763abd0b5886fe2e73b3c686e580284b1f39.pdf"
+      ]
+    },
+    {
+      "id": "kyle-2026-scr2-suzuka-vita",
+      "order": 2,
+      "status": "completed",
+      "series": "2026 Suzuka Champion Cup Race Round 2, VITA",
+      "series_id": "scr-vita",
+      "circuit_id": "suzuka",
+      "round": "Kyle Wynne in VITA-01 #213, Circuit Orange Racing",
+      "dates": {
+        "weekend": "2026-06-13/2026-06-14",
+        "qualifying": "Sat 2026-06-13, start 11:05 JST. Fine, dry",
+        "race": "Sun 2026-06-14, start 10:50:09 JST. Cloudy, dry. 8 laps"
+      },
+      "format": "VITA sprint, 8 laps",
+      "class": "VITA",
+      "car_number": 213,
+      "car_name": "Circuit Orange Racing (VITA-01)",
+      "team": "Circuit Orange Racing",
+      "drivers": [
+        "Kyle Wynne"
+      ],
+      "results": {
+        "qualifying": {
+          "position": "P10 of 35, 2'26.019 (+1.765)"
+        },
+        "race": {
+          "position": "P9 of 30 classified, 8 laps, 23'46.726, +6.864",
+          "best_lap_kyle": "2'25.848 (lap 3)",
+          "note": "Finished behind the safety car"
+        }
+      },
+      "notes": [
+        "Kyle Wynne's VITA race. He is also Ross Ogilvie's MEC120 co-driver."
+      ],
+      "sources": [
+        "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/0613_vita_q.pdf",
+        "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/0614_vita_f.pdf"
+      ]
+    },
+    {
+      "id": "2026-motegi-ccr3-vgranz",
+      "order": 3,
       "status": "completed",
       "series": "Motegi Champion Cup Race Rd.3: Motegi-SUGO v.Granz Series Rd.3 & Rd.4 (two sprint races)",
       "series_id": "motegi-sugo-vgranz",
@@ -82,7 +162,7 @@
     },
     {
       "id": "2026-mec120-rd1-suzuka",
-      "order": 2,
+      "order": 4,
       "status": "completed",
       "series": "MEC120 (VITA CLUB 120-minute endurance), held within 2026 Suzuka Champion Cup Race Round 3",
       "series_id": "mec120",
@@ -106,7 +186,7 @@
       "results": {
         "qualifying": {
           "position": "Ama-Ama class 12th; 26th overall in the v.Granz qualifying",
-          "car_best_lap": "2'17.082 (the sheet does not say which driver set it)",
+          "car_best_lap": "2'17.082 (Kyle Wynne, Driver 1, lap-time chart)",
           "conditions": "Fine, dry"
         },
         "race": {
@@ -128,8 +208,46 @@
       ]
     },
     {
+      "id": "kyle-2026-fcr-vita-rd2-fuji",
+      "order": 5,
+      "status": "completed",
+      "series": "Fuji Champion Race Series Rd.4: FCR-VITA Rd.2",
+      "series_id": "fcr-vita",
+      "circuit_id": "fuji",
+      "round": "Kyle Wynne in VITA #213, Circuit Orange Racing",
+      "dates": {
+        "weekend": "2026-09-05/2026-09-05",
+        "qualifying": "Sat 2026-09-05. Cloudy, wet. No time inside the 130% limit",
+        "race": "Sat 2026-09-05, start 10:14:49 JST, 10 laps. Cloudy, wet"
+      },
+      "format": "VITA sprint, 10 laps",
+      "class": "VITA",
+      "car_number": 213,
+      "car_name": "Circuit Orange Racing VITA",
+      "team": "Circuit Orange Racing",
+      "drivers": [
+        "Kyle Wynne"
+      ],
+      "results": {
+        "qualifying": {
+          "position": "No valid time: 3'26.810 from 2 laps, outside the 130% limit; stewards let him start from the back"
+        },
+        "race": {
+          "position": "P13 of 31 classified, from 32nd on the grid, 10 laps, 20'38.852, +23.965",
+          "best_lap_kyle": "2'01.381 (lap 10)"
+        }
+      },
+      "notes": [
+        "Kyle Wynne's VITA race. He is also Ross Ogilvie's MEC120 co-driver."
+      ],
+      "sources": [
+        "https://www.fsw.tv/motorsports/result/pdf-cms/2cf47e5639c95c8f739d25335928b4ec319fcd69.pdf",
+        "https://www.fsw.tv/motorsports/result/pdf-cms/99110134e4208f527fa62036f4488c705443298b.pdf"
+      ]
+    },
+    {
       "id": "2026-mec120-rd2-motegi",
-      "order": 3,
+      "order": 6,
       "status": "completed",
       "series": "MEC120, held within 2026 Motegi Champion Cup Race Rd.4",
       "series_id": "mec120",
@@ -160,7 +278,7 @@
           "ross_time": "none on the sheet"
         },
         "race": {
-          "position": "Not classified. Listed below the finishers line despite 46 laps (36 needed); reason not stated on the sheet",
+          "position": "Not classified. The sheet lists #213 below the Ama-Ama finishers (46 laps, 2:02'03.122) with no penalty mark and no reason. The lap-time chart has no lap after the chequered flag (lap 46 ended 13:02:03.122; flag at 13:02:10), so #213 did not take the flag (unconfirmed)",
           "laps": 46,
           "total_time": "2:02'03.122",
           "best_lap_ross": "2'06.495 (Ross drove 16 laps)",
@@ -179,7 +297,7 @@
     },
     {
       "id": "2026-scr4-suzuka-vgranz",
-      "order": 4,
+      "order": 7,
       "status": "in progress (qualifying complete 3 Oct 2026, race Sun 4 Oct)",
       "series": "2026 Suzuka Champion Cup Race (SCR) Round 4, v.Granz class",
       "series_id": "scr-vgranz",
@@ -210,9 +328,9 @@
           "conditions": "Fine, dry",
           "starters": "23",
           "red_flag": "13:15:56-13:21:00 JST (cause not named on the sheet)",
-          "pole": "#75 Kanazawa Rikiya (FIVE CORE JAPAN RACING) 2'13.943",
-          "second": "#11 Kojima Hironori (Z-Racing) 2'13.948",
-          "third": "#2 Fujiwara Yuta (Akiland) 2'14.320",
+          "pole": "#75 金澤 力也 (Kanazawa Rikiya, romanised, unconfirmed), FIVE CORE JAPAN RACING, 2'13.943",
+          "second": "#11 小島 弘紀 (Kojima Hironori, romanised, unconfirmed), Z-Racing, 2'13.948",
+          "third": "#2 藤原 優汰 (Fujiwara Yuta, romanised, unconfirmed), Akiland, 2'14.320",
           "grid": "P18, row 9, alongside #133"
         },
         "race": {}
@@ -220,18 +338,25 @@
       "notes": [
         "Coach target lap 2:18 (Ross email 29 Sep).",
         "#213 was driven by Jure Portelli at SCR Rd1 (Q 2:15.185); not entered in v.Granz at Rd2.",
-        "VITA qualifying is provisional (14:50-15:06 JST, 35 starters, two red flags, the second ended the session). Circuit Orange: #214 Hana Burton P2, 2'25.605, front row, +0.197 to pole; #213 Kyle Wynne P10, 2'26.488. VITA race Sun 4 Oct, mid-afternoon, 8 laps or 25 minutes."
+        "VITA qualifying is provisional (14:50-15:06 JST, 35 starters, two red flags, the second ended the session). Circuit Orange: #214 Hana Burton P2, 2'25.605, front row, +0.197 to pole; #213 Kyle Wynne P10, 2'26.488. VITA race Sun 4 Oct, mid-afternoon, 8 laps or 25 minutes.",
+        "Team / related: Kohei Tokumasu (徳升 広平, romanised, unconfirmed), T-Style, prepares Ross's car. GR86/BRZ Cup Professional Series Rd.6 qualifying: P19, 2'26.364, +1.051. Grid P18 after #160's 3-place drop. Race Sun 4 Oct 11:35 JST, 8 laps."
       ],
       "sources": [
         "https://www.suzukacircuit.jp/scr/ (2026 SCR schedule)",
         "https://apps.mobilityland.co.jp/info/download/--9q_u/190992 (v.Granz qualifying, official final)",
         "https://apps.mobilityland.co.jp/info/download/--9q_u/191000 (v.Granz race grid, official)",
-        "https://apps.mobilityland.co.jp/info/download/--9q_u/190998 (VITA qualifying, provisional)"
+        "https://apps.mobilityland.co.jp/info/download/--9q_u/190998 (VITA qualifying, provisional)",
+        "https://apps.mobilityland.co.jp/info/download/--9q_u/190944 (GR86/BRZ Cup Pro Rd.6 qualifying, official)",
+        "https://apps.mobilityland.co.jp/info/download/--9q_u/190996 (GR86/BRZ Cup Pro Rd.6 grid, official)"
+      ],
+      "result_race_ids": [
+        "2026-scr4-suzuka-vgranz",
+        "kyle-2026-scr4-suzuka-vita"
       ]
     },
     {
       "id": "2026-mec120-rd3-okayama",
-      "order": 5,
+      "order": 8,
       "status": "upcoming",
       "series": "MEC120, held within the OKAYAMA Challenge Cup Race Rd.4 meeting",
       "series_id": "mec120",
@@ -257,7 +382,7 @@
     },
     {
       "id": "2026-sugo-ccr7-vgranz",
-      "order": 6,
+      "order": 9,
       "status": "upcoming (Ross's entry unconfirmed)",
       "series": "SUGO Champion Cup Race Series Rd.7: Motegi-SUGO v.Granz Series Rd.5 & Rd.6",
       "series_id": "motegi-sugo-vgranz",
@@ -281,7 +406,7 @@
     },
     {
       "id": "2026-scr-final-suzuka",
-      "order": 7,
+      "order": 10,
       "status": "upcoming (series/entry unconfirmed)",
       "series": "Probably 2026 Suzuka Champion Cup Race Final Round (Round 5), v.Granz class (unconfirmed)",
       "series_id": "scr-vgranz",
@@ -301,7 +426,7 @@
     },
     {
       "id": "2026-mec120-rd4-fuji",
-      "order": 8,
+      "order": 11,
       "status": "upcoming",
       "series": "MEC120 (final round), held within Fuji Champion Race Series Rd.7 (12-13 Dec)",
       "series_id": "mec120",
