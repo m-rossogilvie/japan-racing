@@ -1029,8 +1029,15 @@ code {
     overscroll-behavior-x: contain;
   }
   .sheet { min-width: 0; }
+  .sheet th,
+  .sheet td { padding-inline: 0.28rem; }
   .sheet th:first-child,
   .sheet td:first-child { padding-left: 1rem; }
+  .sheet :is(th.c-pos, td.c-pos) {
+    white-space: normal;
+    min-width: 2.4rem;
+    max-width: 4.75rem;
+  }
   .session-result:not(:has(.allcols :checked)) .sheet .c-opt { display: none; }
   .session-result:has(.allcols :checked) .sheet { min-width: max-content; }
   .session-result:has(.allcols :checked) .sheet :is(.c-pos, .c-no) {
