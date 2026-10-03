@@ -9,6 +9,7 @@ import {
   renderCircuit,
   renderCircuits,
   renderHome,
+  renderKyle,
   renderNotFound,
   renderRace,
 } from "./lib/render.js";
@@ -30,8 +31,8 @@ const TYPES = {
 let cache = { mtime: 0, data: null };
 
 export function seasonData() {
-  const file = path.join(root, "data", "season.json");
-  const mtime = fs.statSync(file).mtimeMs;
+  const files = ["season.json", "results.json", "ja.json"].map((name) => path.join(root, "data", name));
+  const mtime = files.reduce((sum, file) => sum + (fs.existsSync(file) ? fs.statSync(file).mtimeMs : 0), 0);
   if (!cache.data || cache.mtime !== mtime) {
     cache = { mtime, data: loadSeason(root) };
   }
@@ -53,34 +54,78 @@ export function createServer() {
 function handle(req, res) {
   const url = new URL(req.url || "/", "http://localhost");
   const pathname = decodeURIComponent(url.pathname).replace(/\/+$/, "") || "/";
+  const proto = header(req, "x-forwarded-proto") || url.protocol.replace(":", "");
+  const host = header(req, "x-forwarded-host") || header(req, "host") || url.host;
+  const origin = `${proto}://${host}`;
 
   if (pathname === "/health") {
     return send(res, 200, "text/plain; charset=utf-8", "ok");
   }
 
-  if (pathname === "/") return sendHtml(res, renderHome(seasonData()));
-  if (pathname === "/circuits") return sendHtml(res, renderCircuits(seasonData()));
+  if (pathname === "/" && cookieLang(req) === "ja" && url.searchParams.get("hl") !== "en") {
+    res.writeHead(302, { location: "/ja", "set-cookie": langCookie("ja"), "cache-control": "no-cache" });
+    res.end();
+    return;
+  }
 
-  const race = pathname.match(/^\/races\/([^/]+)$/);
+  const { lang, path: bare } = stripLang(pathname);
+  const page = (html, status = 200) => sendHtml(res, html, status, lang);
+
+  if (bare === "/") return page(renderHome(seasonData(), Date.now(), lang, origin, bare));
+  if (bare === "/kyle-wynne") return page(renderKyle(seasonData(), lang, origin, bare));
+  if (bare === "/circuits") return page(renderCircuits(seasonData(), lang, origin, bare));
+
+  const race = bare.match(/^\/races\/([^/]+)$/);
   if (race) {
     const item = findRace(seasonData(), race[1]);
-    if (!item) return sendHtml(res, renderNotFound(), 404);
-    return sendHtml(res, renderRace(seasonData(), item));
+    if (!item) return page(renderNotFound(lang, origin, bare), 404);
+    return page(renderRace(seasonData(), item, Date.now(), lang, origin, bare));
   }
 
-  const circuit = pathname.match(/^\/circuits\/([^/]+)$/);
+  const circuit = bare.match(/^\/circuits\/([^/]+)$/);
   if (circuit) {
     const item = findCircuit(seasonData(), circuit[1]);
-    if (!item) return sendHtml(res, renderNotFound(), 404);
-    return sendHtml(res, renderCircuit(seasonData(), item));
+    if (!item) return page(renderNotFound(lang, origin, bare), 404);
+    return page(renderCircuit(seasonData(), item, lang, origin, bare));
   }
 
-  if (serveStatic(pathname, res)) return;
-  return sendHtml(res, renderNotFound(), 404);
+  if (serveStatic(bare, res) || serveStatic(pathname, res)) return;
+  return page(renderNotFound(lang, origin, bare), 404);
 }
 
-function sendHtml(res, html, status = 200) {
-  send(res, status, "text/html; charset=utf-8", html, "no-cache");
+function stripLang(pathname) {
+  if (pathname === "/ja" || pathname.startsWith("/ja/")) {
+    const bare = pathname === "/ja" ? "/" : pathname.slice(3) || "/";
+    return { lang: "ja", path: bare };
+  }
+  return { lang: "en", path: pathname };
+}
+
+function cookieLang(req) {
+  const match = String(req.headers.cookie || "").match(/(?:^|;\s*)lang=(en|ja)(?:;|$)/);
+  return match ? match[1] : "";
+}
+
+function langCookie(lang) {
+  return `lang=${lang}; Path=/; Max-Age=31536000; SameSite=Lax`;
+}
+
+function header(req, name) {
+  const value = req.headers[name];
+  return Array.isArray(value) ? value[0] : value || "";
+}
+
+function sendHtml(res, html, status = 200, lang = "en") {
+  res.writeHead(status, {
+    "content-type": "text/html; charset=utf-8",
+    "cache-control": "no-cache",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "content-language": lang,
+    "set-cookie": langCookie(lang),
+    "content-security-policy": "default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'",
+  });
+  res.end(html);
 }
 
 function send(res, status, type, body, cacheControl = "no-cache") {

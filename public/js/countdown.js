@@ -31,7 +31,7 @@
   function paint() {
     const item = current();
     if (!item) {
-      if (label) label.textContent = "Session time reached.";
+      if (label) label.textContent = root.getAttribute("data-reached") || "Session time reached.";
       for (const key of Object.keys(units)) {
         if (units[key]) units[key].textContent = "00";
       }
@@ -42,7 +42,7 @@
       if (item.unconfirmed) {
         const flag = document.createElement("span");
         flag.className = "flag";
-        flag.textContent = "Unconfirmed";
+        flag.textContent = root.getAttribute("data-flag") || "Unconfirmed";
         label.append(" ");
         label.append(flag);
       }

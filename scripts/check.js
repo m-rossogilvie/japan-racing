@@ -12,7 +12,7 @@ const css = fs.readFileSync(path.join(root, "public/css/site.css"), "utf8");
 
 const leaks = /fairfield|marriott|dormy|mitsui|peninsula|yunomori|yunogo|mashikokan|accommodation|check_in|\bJL51\b|RO_ICV_|ticket #51293|\/home\/|agent-data|gmail|google calendar|z05jUIPxHPY/i;
 assert.equal(leaks.test(JSON.stringify(season)), false, "season.json contains private data");
-assert.equal(season.races.length, 8);
+assert.equal(season.races.length, 11);
 assert.equal(season.races.some((race) => /not a race/i.test(race.status || "")), false);
 
 const now = Date.parse("2026-10-02T20:47:00+09:00");
@@ -51,6 +51,7 @@ for (const hex of hexes) {
 assert.equal(/rgb\(|hsl\(|oklch\(/i.test(css), false);
 assert.match(css, /Figtree/);
 assert.match(css, /Noto Serif JP/);
+assert.match(css, /Noto Sans JP/);
 
 const server = createServer();
 await new Promise((resolve) => server.listen(0, "127.0.0.1", resolve));
@@ -82,7 +83,7 @@ assert.match(home.text, /Public domain/);
 assert.match(home.text, /creativecommons\.org\/licenses\/by-sa\/3\.0/);
 assert.equal(leaks.test(home.text), false, "homepage leaked private data");
 const raceIds = [...home.text.matchAll(/href="\/races\/([^"]+)"/g)].map((match) => match[1]);
-assert.equal(new Set(raceIds).size, 8);
+assert.equal(new Set(raceIds).size, 11);
 
 const pages = [
   "/races/2026-motegi-ccr3-vgranz",
@@ -120,12 +121,18 @@ const suzuka = await get("/races/2026-mec120-rd1-suzuka");
 assert.match(suzuka.text, /2'24\.934/);
 assert.match(suzuka.text, /2'18\.197/);
 assert.match(suzuka.text, /Kyle Wynne/);
+assert.match(suzuka.text, /2'17\.082/);
+assert.match(suzuka.text, /href="\/kyle-wynne"/);
+assert.doesNotMatch(suzuka.text, /does not say which driver/);
 
 const rd2 = await get("/races/2026-mec120-rd2-motegi");
 assert.match(rd2.text, /Not classified/);
 assert.match(rd2.text, /2'03\.991/);
 assert.match(rd2.text, /2'06\.495/);
 assert.match(rd2.text, /2'05\.867/);
+assert.match(rd2.text, /did not take the flag \(unconfirmed\)/);
+assert.doesNotMatch(rd2.text, /reason not stated/);
+assert.match(rd2.text, /Penalties and stewards/);
 
 const live = await get("/races/2026-scr4-suzuka-vgranz");
 assert.match(live.text, /class="flag">Unconfirmed/);
@@ -139,6 +146,13 @@ assert.match(live.text, /Kyle Wynne/);
 assert.match(live.text, /Not published/);
 assert.doesNotMatch(live.text, /about 13:25/);
 assert.match(live.text, /data-countdown-root/);
+assert.match(live.text, /row-primary/);
+assert.match(live.text, /徳升 広平/);
+assert.match(live.text, /2'26\.364/);
+assert.match(live.text, /class="flag">Provisional/);
+assert.match(live.text, /190992/);
+assert.match(live.text, /金澤 力也/);
+assert.match(live.text, /romanised, unconfirmed/);
 
 const okayama = await get("/races/2026-mec120-rd3-okayama");
 assert.match(okayama.text, /class="flag">Unconfirmed/);
@@ -162,6 +176,44 @@ assert.match(fuji.text, /English Wikipedia infobox/);
 const motegiCircuit = await get("/circuits/motegi");
 assert.match(motegiCircuit.text, /Ronny Astrada/);
 assert.match(motegiCircuit.text, /class="flag">Not verified/);
+
+const kyle = await get("/kyle-wynne");
+assert.equal(kyle.status, 200);
+assert.match(kyle.text, /FCR-VITA/);
+assert.match(kyle.text, /2'26\.019/);
+assert.match(kyle.text, /href="\/races\/2026-mec120-rd1-suzuka"/);
+assert.match(kyle.text, /row-primary/);
+assert.equal(leaks.test(kyle.text), false);
+
+const fujiKyle = await get("/races/kyle-2026-fcr-vita-rd1-fuji");
+assert.equal(fujiKyle.status, 200);
+assert.match(fujiKyle.text, /1'59\.336/);
+assert.match(fujiKyle.text, /row-primary/);
+
+const scr2 = await get("/races/kyle-2026-scr2-suzuka-vita");
+assert.equal(scr2.status, 200);
+assert.match(scr2.text, /2'26\.019/);
+
+const jaHome = await get("/ja");
+assert.equal(jaHome.status, 200);
+assert.match(jaHome.text, /<html lang="ja">/);
+assert.match(jaHome.text, /hreflang="en"/);
+assert.match(jaHome.text, /シーズン/);
+assert.match(jaHome.text, /鈴鹿/);
+
+const jaLive = await get("/ja/races/2026-scr4-suzuka-vgranz");
+assert.equal(jaLive.status, 200);
+assert.match(jaLive.text, /<html lang="ja">/);
+assert.match(jaLive.text, /金澤 力也/);
+assert.match(jaLive.text, /暫定/);
+assert.match(jaLive.text, /公式結果/);
+assert.match(jaLive.text, /ペナルティと審査委員会の決定/);
+
+const jaKyle = await get("/ja/kyle-wynne");
+assert.equal(jaKyle.status, 200);
+assert.match(jaKyle.text, /<html lang="ja">/);
+assert.match(jaKyle.text, /Kyle Wynne/);
+assert.match(jaKyle.text, /VITAのレース/);
 
 const missing = await get("/races/nope");
 assert.equal(missing.status, 404);

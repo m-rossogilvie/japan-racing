@@ -2,7 +2,7 @@
 
 The season sheet for Ross Ogilvie's 2026 Japan motor-racing year. Car **213**, West Racing v.Granz, entered by Circuit Orange Racing. Sprint rounds in the v.Granz Champion Cup meetings, and MEC120 endurance races with Kyle Wynne where he is named.
 
-The site is a small Node server. It reads one file, `data/season.json`, and renders the season, each weekend, and the circuit guide. No build step.
+The site is a small Node server. It reads `data/season.json` for the season and `data/results.json` for the official classifications. No build step. English is at `/`. Japanese is at `/ja/…`. Kyle Wynne's VITA page is `/kyle-wynne`.
 
 ## Run
 
@@ -29,7 +29,7 @@ If a service is created without the Dockerfile (Nixpacks on `package.json` alone
 
 ## Update the sheet
 
-Edit `data/season.json` and redeploy (or restart locally). The server re-reads the file when it changes. Templates do not need to change when a result, session or note is added.
+Edit `data/season.json` or `data/results.json` and redeploy (or restart locally). The server re-reads both when they change. A session in `results.json` appears on the race page whose `id` matches `race_id` (or `result_race_ids`). Japanese copy for the narrative lives in `data/ja.json`, keyed by the English sentence.
 
 Shape that matters:
 
@@ -39,7 +39,7 @@ Shape that matters:
 - `circuits[]` — facts and `images[]`. Map files live in `public/images/`. CC BY-SA credits are printed from `images[]` plus `data/LICENSES.json`.
 - `series[]`, `car`, `licence` — shown on the season page.
 
-Anything uncertain must contain the word **unconfirmed**. The site turns that word into a visible flag and will not treat the line as settled fact. Do not invent a result, a time or a circuit fact to fill a gap. Leave the field empty; the page says "Not published".
+Anything uncertain must contain the word **unconfirmed**. A session that is not yet final must contain **provisional**. The site turns those words into a red flag. Do not invent a result, a time or a circuit fact to fill a gap. Leave the field empty; the page says "Not published". In English, a romanisation that is not printed on the sheet is marked `romanised, unconfirmed`. Japanese pages use the names as printed.
 
 ### Leave this out
 
@@ -47,7 +47,7 @@ The repo and the site are public. Do not put hotels, bookings, flights or other 
 
 ## Brand
 
-Shinkō1, 2026 toolkit: Figtree Light, Medium and Bold; `#030000`, `#3D3C3C`, `#F9F7F7`, `#FE0043`. The kanji 新興 is set in a two-glyph Noto Serif JP subset because Figtree has no CJK. Both faces are SIL Open Font License; see `public/fonts/`.
+Shinkō1, 2026 toolkit: Figtree Light, Medium and Bold; `#030000`, `#3D3C3C`, `#F9F7F7`, `#FE0043`. Figtree has no CJK, so Noto Sans JP is the fallback for Japanese, and the kanji 新興 stay in a two-glyph Noto Serif JP subset. The faces are SIL Open Font License; see `public/fonts/`.
 
 ## Maps
 
