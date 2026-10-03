@@ -84,6 +84,9 @@ assert.match(home.text, /creativecommons\.org\/licenses\/by-sa\/3\.0/);
 assert.equal(leaks.test(home.text), false, "homepage leaked private data");
 const raceIds = [...home.text.matchAll(/href="\/races\/([^"]+)"/g)].map((match) => match[1]);
 assert.equal(new Set(raceIds).size, 11);
+const rows = home.text.match(/<a class="race-row"[\s\S]*?<\/a>/g) || [];
+assert.ok(rows.length >= 11);
+for (const row of rows) assert.equal((row.match(/<a /g) || []).length, 1, "nested link in a calendar row");
 
 const pages = [
   "/races/2026-motegi-ccr3-vgranz",
@@ -153,6 +156,10 @@ assert.match(live.text, /class="flag">Provisional/);
 assert.match(live.text, /190992/);
 assert.match(live.text, /金澤 力也/);
 assert.match(live.text, /romanised, unconfirmed/);
+assert.match(live.text, /class="jump"/);
+assert.match(live.text, /class="allcols"/);
+assert.match(live.text, /class="row-jump"/);
+assert.match(live.text, /All columns/);
 
 const okayama = await get("/races/2026-mec120-rd3-okayama");
 assert.match(okayama.text, /class="flag">Unconfirmed/);
@@ -172,6 +179,11 @@ assert.match(okaCircuit.text, /commons\.wikimedia\.org/);
 const fuji = await get("/circuits/fuji");
 assert.match(fuji.text, /Will Pittenger/);
 assert.match(fuji.text, /English Wikipedia infobox/);
+
+const suzukaCircuit = await get("/circuits/suzuka");
+assert.match(suzukaCircuit.text, /width="1273"/);
+assert.match(suzukaCircuit.text, /height="983"/);
+assert.match(suzukaCircuit.text, /Suzuka circuit map/);
 
 const motegiCircuit = await get("/circuits/motegi");
 assert.match(motegiCircuit.text, /Ronny Astrada/);
@@ -208,6 +220,8 @@ assert.match(jaLive.text, /金澤 力也/);
 assert.match(jaLive.text, /暫定/);
 assert.match(jaLive.text, /公式結果/);
 assert.match(jaLive.text, /ペナルティと審査委員会の決定/);
+assert.match(jaLive.text, /全項目/);
+assert.match(jaLive.text, /class="jump"/);
 
 const jaKyle = await get("/ja/kyle-wynne");
 assert.equal(jaKyle.status, 200);

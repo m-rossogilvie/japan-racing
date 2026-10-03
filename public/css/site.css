@@ -33,7 +33,7 @@
 
 @font-face {
   font-family: "Noto Sans JP";
-  src: url("/fonts/NotoSansJP-400.woff2") format("woff2");
+  src: local("Noto Sans JP"), local("Noto Sans CJK JP"), url("/fonts/NotoSansJP-400.woff2") format("woff2");
   font-weight: 100 500;
   font-style: normal;
   font-display: swap;
@@ -41,7 +41,7 @@
 
 @font-face {
   font-family: "Noto Sans JP";
-  src: url("/fonts/NotoSansJP-700.woff2") format("woff2");
+  src: local("Noto Sans JP"), local("Noto Sans CJK JP"), url("/fonts/NotoSansJP-700.woff2") format("woff2");
   font-weight: 600 900;
   font-style: normal;
   font-display: swap;
@@ -52,8 +52,10 @@
   --charcoal: #3D3C3C;
   --paper: #F9F7F7;
   --red: #FE0043;
-  --sans: "Figtree", "Noto Sans JP", sans-serif;
+  --sans: "Figtree", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif;
   --jp: "Noto Serif JP", serif;
+  --label: clamp(0.8125rem, 0.78rem + 0.15vw, 0.875rem);
+  --small: clamp(0.875rem, 0.84rem + 0.2vw, 1rem);
 }
 
 * { box-sizing: border-box; }
@@ -65,7 +67,23 @@ html {
 
 html[lang="ja"] body {
   line-height: 1.7;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+  line-break: strict;
+}
+
+html[lang="ja"] :is(h1, h2, h3, .circuit) {
+  word-break: auto-phrase;
+  text-wrap: balance;
+}
+
+html[lang="ja"] :is(.sheet, .time, .lap, .when, .when-lg, .count) {
+  overflow-wrap: normal;
+  word-break: keep-all;
+  line-break: strict;
+}
+
+html[lang="ja"] .sheet :is(td.c-name, td.c-drivers) {
+  overflow-wrap: break-word;
 }
 
 body {
@@ -167,7 +185,7 @@ a:focus-visible {
 .issue {
   margin: 0;
   font-weight: 500;
-  font-size: 0.78rem;
+  font-size: var(--small);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1.35;
@@ -188,7 +206,7 @@ a:focus-visible {
 .carno span {
   display: block;
   color: var(--paper);
-  font-size: 0.68rem;
+  font-size: var(--label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   margin-bottom: 0.28rem;
@@ -212,7 +230,7 @@ a:focus-visible {
   min-height: 44px;
   padding-right: 0.9rem;
   font-weight: 700;
-  font-size: 0.74rem;
+  font-size: var(--label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   text-decoration: none;
@@ -225,7 +243,7 @@ a:focus-visible {
 .nav-id {
   margin-left: auto;
   font-weight: 500;
-  font-size: 0.78rem;
+  font-size: var(--small);
   letter-spacing: 0.04em;
 }
 
@@ -234,11 +252,18 @@ a:focus-visible {
   gap: 0.55rem;
   margin-left: auto;
   font-weight: 700;
-  font-size: 0.78rem;
+  font-size: var(--label);
   letter-spacing: 0.08em;
 }
 
-.langs a { text-decoration: none; }
+.langs a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  text-decoration: none;
+}
 
 .langs a[aria-current="true"] {
   box-shadow: inset 0 -2px 0 var(--red);
@@ -272,7 +297,7 @@ a:focus-visible {
 .section-kicker {
   margin: 0 0 0.45rem;
   font-weight: 700;
-  font-size: 0.74rem;
+  font-size: var(--label);
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -289,8 +314,11 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
+.lead-grid > * { min-width: 0; }
+
 .lead h1 {
-  font-size: clamp(4.8rem, 22vw, 8.6rem);
+  font-size: clamp(3.5rem, 19vw, 8rem);
+  max-width: 100%;
 }
 
 .section-title {
@@ -326,10 +354,12 @@ a:focus-visible {
 .session { margin: 0.35rem 0 0.8rem; font-weight: 500; }
 
 .go {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   margin-top: 0.4rem;
   font-weight: 700;
-  font-size: 0.76rem;
+  font-size: var(--label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   text-decoration: none;
@@ -355,7 +385,7 @@ a:focus-visible {
   display: block;
   margin-top: 0.25rem;
   font-weight: 500;
-  font-size: 0.66rem;
+  font-size: var(--label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -409,18 +439,23 @@ a:focus-visible {
 .result .status,
 .status {
   font-weight: 700;
-  font-size: 0.72rem;
+  font-size: var(--label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.status.now { color: var(--red); }
+.status.now {
+  display: inline-block;
+  background: var(--red);
+  color: var(--ink);
+  padding: 0.16em 0.45em 0.12em;
+}
 
 .line { color: var(--ink); font-weight: 500; }
 
 .lbl {
   font-weight: 700;
-  font-size: 0.72rem;
+  font-size: var(--label);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-right: 0.35rem;
@@ -441,7 +476,7 @@ a:hover .flag {
   background: var(--red);
   color: var(--ink);
   font-weight: 700;
-  font-size: 0.68rem;
+  font-size: var(--label);
   letter-spacing: 0.12em;
   line-height: 1.3;
   text-transform: uppercase;
@@ -484,7 +519,7 @@ a:hover .flag {
 .facts dt,
 .kv dt {
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: var(--label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -533,12 +568,22 @@ h2 {
 .crumb {
   margin: 1.1rem 0 0;
   font-weight: 700;
-  font-size: 0.74rem;
+  font-size: var(--label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.crumb a { text-decoration: none; }
+.crumb a,
+.onward a,
+.vita-card h3 a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.onward a,
+.vita-card h3 a { text-decoration: underline; text-underline-offset: 0.15em; }
 
 .race-head { padding-top: 0.4rem; }
 
@@ -590,6 +635,10 @@ h2 {
   margin-top: 0.35rem;
 }
 
+.kv .kv > div { grid-template-columns: 1fr; }
+
+.kv .kv .is-position { font-size: clamp(1.15rem, 4vw, 1.6rem); }
+
 .plain {
   margin: 0.2rem 0 0;
   padding-left: 1.1rem;
@@ -611,7 +660,7 @@ h2 {
 .who {
   display: block;
   font-weight: 700;
-  font-size: 0.7rem;
+  font-size: var(--label);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -708,7 +757,7 @@ h2 {
 
 .colophon h2 {
   margin-top: 1.6rem;
-  font-size: 0.74rem;
+  font-size: var(--label);
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -729,13 +778,13 @@ code {
 .sheet {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.92rem;
+  font-size: var(--small);
   min-width: 42rem;
 }
 
 .sheet th {
   text-align: left;
-  font-size: 0.68rem;
+  font-size: var(--label);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 700;
@@ -748,7 +797,12 @@ code {
   border-bottom: 1px solid var(--charcoal);
   padding: 0.38rem 0.45rem;
   vertical-align: top;
+  font-weight: 500;
+  white-space: nowrap;
 }
+
+.sheet td.c-name,
+.sheet td.c-drivers { white-space: normal; }
 
 .sheet tr.row-primary td {
   background: var(--ink);
@@ -763,6 +817,10 @@ code {
 
 .sheet tr.row-team td {
   font-weight: 500;
+  box-shadow: none;
+}
+
+.sheet tr.row-team td:first-child {
   box-shadow: inset 4px 0 0 var(--charcoal);
 }
 
@@ -789,7 +847,7 @@ code {
 .decisions h4,
 .decision .who {
   margin: 0.8rem 0 0.2rem;
-  font-size: 0.72rem;
+  font-size: var(--label);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -844,7 +902,10 @@ code {
     padding-block: 2rem 2.4rem;
   }
   .lead .kicker { grid-area: kicker; }
-  .lead h1 { grid-area: title; }
+  .lead h1 {
+    grid-area: title;
+    font-size: clamp(4.8rem, 10.5vw, 8rem);
+  }
   .lead-clock { grid-area: clock; align-self: end; margin-top: 0; }
   .lead .when-line { grid-area: when; }
   .lead .deck { grid-area: deck; }
@@ -859,13 +920,135 @@ code {
   .split { grid-template-columns: 0.9fr 1.1fr; align-items: start; }
 }
 
-@media (max-width: 719px) {
+@media (max-width: 1099px) {
   .nav-id { display: none; }
+}
+
+[id] { scroll-margin-top: 3.5rem; }
+
+.jump {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.85rem;
+  background: var(--paper);
+  border-bottom: 1px solid var(--ink);
+  margin: 0.6rem 0 0.2rem;
+}
+
+.jump a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+  font-size: var(--label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.row-jump {
+  margin: 0.15rem 0 0.45rem;
+  font-weight: 700;
+}
+
+.row-jump a {
+  text-decoration: none;
+  border-bottom: 2px solid var(--red);
+}
+
+.allcols { display: none; }
+
+.prose,
+.decision p,
+.session-meta,
+.method { max-width: 42rem; }
+
+.decision.is-ross {
+  border-left: 6px solid var(--red);
+  padding-left: 0.75rem;
+}
+
+.decision .alt {
+  color: var(--charcoal);
+  font-size: 0.95rem;
+}
+
+.more-decisions { margin-top: 0.4rem; }
+
+.more-decisions summary {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+  font-size: var(--label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+@media (min-width: 860px) {
+  .decision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+  .decision .who { grid-column: 1 / -1; }
+}
+
+@media (max-width: 719px) {
   .nav a { letter-spacing: 0.08em; padding-right: 0.65rem; }
   .langs { margin-left: auto; }
   .kv > div { grid-template-columns: 1fr; }
   .facts { grid-template-columns: 1fr; }
   .spec { grid-template-columns: 1fr 1fr; }
+  .is-inner .issue { display: none; }
+  .is-inner .wordmark { font-size: clamp(1.7rem, 8vw, 2.4rem); }
+  .is-inner .carno { font-size: clamp(1.8rem, 9vw, 2.6rem); }
+  .allcols {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    margin-top: 0.35rem;
+    font-weight: 700;
+    font-size: var(--label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .allcols input {
+    width: 1.25rem;
+    height: 1.25rem;
+    accent-color: var(--red);
+  }
+  .table-wrap {
+    margin-inline: -1rem;
+    overscroll-behavior-x: contain;
+  }
+  .sheet { min-width: 0; }
+  .sheet th:first-child,
+  .sheet td:first-child { padding-left: 1rem; }
+  .session-result:not(:has(.allcols :checked)) .sheet .c-opt { display: none; }
+  .session-result:has(.allcols :checked) .sheet { min-width: max-content; }
+  .session-result:has(.allcols :checked) .sheet :is(.c-pos, .c-no) {
+    position: sticky;
+    z-index: 1;
+    background: var(--paper);
+  }
+  .session-result:has(.allcols :checked) .sheet .c-pos { left: 0; min-width: 2.75rem; }
+  .session-result:has(.allcols :checked) .sheet .c-no {
+    left: 2.75rem;
+    box-shadow: 2px 0 0 var(--ink);
+  }
+  .session-result:has(.allcols :checked) .sheet tr.row-primary :is(.c-pos, .c-no) {
+    background: var(--ink);
+  }
+  .session-result:has(.allcols :checked) .sheet tr.row-team .c-pos {
+    box-shadow: inset 4px 0 0 var(--charcoal);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

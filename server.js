@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import http from "node:http";
 import path from "node:path";
+import zlib from "node:zlib";
 import { fileURLToPath } from "node:url";
 import { loadSeason } from "./lib/prepare.js";
 import {
@@ -59,7 +60,7 @@ function handle(req, res) {
   const origin = `${proto}://${host}`;
 
   if (pathname === "/health") {
-    return send(res, 200, "text/plain; charset=utf-8", "ok");
+    return send(req, res, 200, "text/plain; charset=utf-8", "ok");
   }
 
   if (pathname === "/" && cookieLang(req) === "ja" && url.searchParams.get("hl") !== "en") {
@@ -69,7 +70,7 @@ function handle(req, res) {
   }
 
   const { lang, path: bare } = stripLang(pathname);
-  const page = (html, status = 200) => sendHtml(res, html, status, lang);
+  const page = (html, status = 200) => sendHtml(req, res, html, status, lang);
 
   if (bare === "/") return page(renderHome(seasonData(), Date.now(), lang, origin, bare));
   if (bare === "/kyle-wynne") return page(renderKyle(seasonData(), lang, origin, bare));
@@ -89,7 +90,7 @@ function handle(req, res) {
     return page(renderCircuit(seasonData(), item, lang, origin, bare));
   }
 
-  if (serveStatic(bare, res) || serveStatic(pathname, res)) return;
+  if (serveStatic(bare, req, res) || serveStatic(pathname, req, res)) return;
   return page(renderNotFound(lang, origin, bare), 404);
 }
 
@@ -115,8 +116,8 @@ function header(req, name) {
   return Array.isArray(value) ? value[0] : value || "";
 }
 
-function sendHtml(res, html, status = 200, lang = "en") {
-  res.writeHead(status, {
+function sendHtml(req, res, html, status = 200, lang = "en") {
+  write(req, res, status, {
     "content-type": "text/html; charset=utf-8",
     "cache-control": "no-cache",
     "x-content-type-options": "nosniff",
@@ -124,35 +125,52 @@ function sendHtml(res, html, status = 200, lang = "en") {
     "content-language": lang,
     "set-cookie": langCookie(lang),
     "content-security-policy": "default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'",
-  });
-  res.end(html);
+  }, html);
 }
 
-function send(res, status, type, body, cacheControl = "no-cache") {
-  res.writeHead(status, {
+function send(req, res, status, type, body, cacheControl = "no-cache") {
+  write(req, res, status, {
     "content-type": type,
     "cache-control": cacheControl,
     "x-content-type-options": "nosniff",
     "referrer-policy": "strict-origin-when-cross-origin",
     "content-security-policy": "default-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'",
-  });
-  res.end(body);
+  }, body);
 }
 
-function serveStatic(pathname, res) {
+function write(req, res, status, headers, body) {
+  const payload = gzipBody(req, headers, body);
+  res.writeHead(status, payload.headers);
+  res.end(payload.body);
+}
+
+function gzipBody(req, headers, body) {
+  const buf = Buffer.isBuffer(body) ? body : Buffer.from(body);
+  const type = String(headers["content-type"] || "");
+  const accept = String(header(req, "accept-encoding") || "");
+  const compressible = /text\/|javascript|json|svg|\+xml/.test(type);
+  if (buf.length < 256 || !compressible || !/\bgzip\b/.test(accept)) return { headers, body: buf };
+  return {
+    headers: { ...headers, "content-encoding": "gzip", vary: "Accept-Encoding" },
+    body: zlib.gzipSync(buf, { level: 6 }),
+  };
+}
+
+function serveStatic(pathname, req, res) {
   if (pathname.includes("\0")) return false;
   const rel = pathname.replace(/^\/+/, "");
   const file = path.resolve(publicDir, rel);
   if (!file.startsWith(publicDir + path.sep) && file !== publicDir) return false;
   if (!fs.existsSync(file) || !fs.statSync(file).isFile()) return false;
-  const type = TYPES[path.extname(file).toLowerCase()] || "application/octet-stream";
+  const ext = path.extname(file).toLowerCase();
+  const type = TYPES[ext] || "application/octet-stream";
   const body = fs.readFileSync(file);
-  res.writeHead(200, {
+  const cache = ext === ".woff2" ? "public, max-age=31536000, immutable" : "public, max-age=86400";
+  write(req, res, 200, {
     "content-type": type,
-    "cache-control": "public, max-age=86400",
+    "cache-control": cache,
     "x-content-type-options": "nosniff",
-  });
-  res.end(body);
+  }, body);
   return true;
 }
 
