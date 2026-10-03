@@ -180,7 +180,7 @@
     {
       "id": "2026-scr4-suzuka-vgranz",
       "order": 4,
-      "status": "in progress (race weekend underway as of 2 Oct 2026)",
+      "status": "in progress (qualifying complete 3 Oct 2026, race Sun 4 Oct)",
       "series": "2026 Suzuka Champion Cup Race (SCR) Round 4, v.Granz class",
       "series_id": "scr-vgranz",
       "circuit_id": "suzuka",
@@ -188,25 +188,45 @@
       "dates": {
         "weekend": "2026-10-03/2026-10-04",
         "practice": "Fri 2026-10-02 special sports driving: FP1 09:10-09:30 and FP2 13:55-14:15 JST (10:10 and 14:55 AEST)",
-        "qualifying": "Sat 2026-10-03 13:10-13:30 JST (14:10 AEST), provisional timetable",
-        "race": "Sun 2026-10-04: 13:10 start procedure, about 13:25 JST race start (14:25 AEST), read from a timetable photo, so unconfirmed"
+        "qualifying": "Sat 2026-10-03 13:10-13:30 JST (14:10-14:30 AEST). Official final result, Suzuka Full Course 5.807 km, fine and dry",
+        "race": "Sun 2026-10-04 13:25 JST race start (14:25 AEST), 8 laps or 25 minutes. Official grid sheet"
       },
       "format": "Sprint race: 8 laps or 25 minutes",
       "class": "v.Granz",
       "car_number": 213,
+      "car_name": "shinko1 with COR",
       "team": "Circuit Orange Racing (COR)",
       "drivers": [
         "Ross Ogilvie"
       ],
       "results": {
-        "practice_fri": "Untimed: no transponder in the official sheets. Self-reported pace 2:19-2:22. Fastest timed v.Granz: #81 2:16.101. 24 v.Granz entries."
+        "practice_fri": "Untimed: no transponder in the official sheets. Self-reported pace 2:19-2:22. Fastest timed v.Granz: #81 2:16.101. 24 v.Granz entries.",
+        "qualifying": {
+          "position": "P18 of 23 starters",
+          "best_lap_ross": "2'18.414",
+          "car_best_lap": "2'18.414",
+          "gap": "+4.471",
+          "deleted_lap": "2'18.873 deleted for track limits",
+          "conditions": "Fine, dry",
+          "starters": "23",
+          "red_flag": "13:15:56-13:21:00 JST (cause not named on the sheet)",
+          "pole": "#75 Kanazawa Rikiya (FIVE CORE JAPAN RACING) 2'13.943",
+          "second": "#11 Kojima Hironori (Z-Racing) 2'13.948",
+          "third": "#2 Fujiwara Yuta (Akiland) 2'14.320",
+          "grid": "P18, row 9, alongside #133"
+        },
+        "race": {}
       },
       "notes": [
         "Coach target lap 2:18 (Ross email 29 Sep).",
-        "#213 was driven by Jure Portelli at SCR Rd1 (Q 2:15.185); not entered in v.Granz at Rd2."
+        "#213 was driven by Jure Portelli at SCR Rd1 (Q 2:15.185); not entered in v.Granz at Rd2.",
+        "VITA qualifying is provisional (14:50-15:06 JST, 35 starters, two red flags, the second ended the session). Circuit Orange: #214 Hana Burton P2, 2'25.605, front row, +0.197 to pole; #213 Kyle Wynne P10, 2'26.488. VITA race Sun 4 Oct, mid-afternoon, 8 laps or 25 minutes."
       ],
       "sources": [
-        "https://www.suzukacircuit.jp/scr/ (2026 SCR schedule)"
+        "https://www.suzukacircuit.jp/scr/ (2026 SCR schedule)",
+        "https://apps.mobilityland.co.jp/info/download/--9q_u/190992 (v.Granz qualifying, official final)",
+        "https://apps.mobilityland.co.jp/info/download/--9q_u/191000 (v.Granz race grid, official)",
+        "https://apps.mobilityland.co.jp/info/download/--9q_u/190998 (VITA qualifying, provisional)"
       ]
     },
     {
