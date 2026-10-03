@@ -67,6 +67,9 @@ async function get(pathname) {
 const home = await get("/");
 assert.equal(home.status, 200);
 assert.match(home.text, /Shinkō1/);
+assert.match(home.text, /class="menu-btn"/);
+assert.match(home.text, /id="race-list"/);
+assert.match(home.text, /id="site-menu"/);
 assert.match(home.text, /新興/);
 assert.match(home.text, /P18 of 23 starters/);
 assert.match(home.text, /2026-10-04T13:25:00\+09:00/);
