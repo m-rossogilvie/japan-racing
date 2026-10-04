@@ -6514,6 +6514,81 @@
       ]
     },
     {
+      "id": "scr4-vgranz-race",
+      "race_id": "2026-scr4-suzuka-vgranz",
+      "title": "SCR Rd.4 v.Granz race (UNOFFICIAL)",
+      "title_ja": "v.Granz 決勝（非公式・ライブタイミング）",
+      "date": "2026-10-04",
+      "start": "13:25",
+      "status": "unofficial",
+      "entries": 23,
+      "starters": 23,
+      "method": "MYLAPS Speedhive live timing (unofficial). Official Suzuka sheet not posted yet.",
+      "rows": [
+        {
+          "pos": "1",
+          "no": "75",
+          "name": "金澤 力也",
+          "team": "FIVE CORE JAPAN RACING",
+          "laps": "8",
+          "total": "33'35.057"
+        },
+        {
+          "pos": "2",
+          "no": "2",
+          "name": "藤原 優汰",
+          "team": "ｱｷﾗﾝﾄﾞv.Granz",
+          "laps": "8",
+          "gap": "0.089",
+          "best": "2'14.385"
+        },
+        {
+          "pos": "3",
+          "no": "11",
+          "name": "兒島 弘訓",
+          "team": "Z-Racing",
+          "laps": "8",
+          "gap": "0.471"
+        },
+        {
+          "pos": "17",
+          "no": "213",
+          "name": "Ross Ogilvie",
+          "team": "shinko1 with COR",
+          "laps": "8",
+          "total": "34'01.255",
+          "gap": "26.198",
+          "best": "2'19.692",
+          "best_lap": "3",
+          "highlight": "primary"
+        },
+        {
+          "pos": "DNF",
+          "no": "72",
+          "name": "大山 正芳",
+          "team": "ﾀﾞｲﾜNｱｷﾗﾝﾄﾞv.Granz"
+        },
+        {
+          "pos": "DNF",
+          "no": "111",
+          "name": "Z.Falcon",
+          "team": "Z-Racing"
+        }
+      ],
+      "fastest_lap": {
+        "no": "2",
+        "name": "藤原 優汰",
+        "time": "2'14.385"
+      },
+      "notes": [
+        "#213 Ross Ogilvie: P17 of 23 from grid P18.",
+        "Winner #75 金澤 力也, 33'35.057. 2nd #2 藤原 優汰 +0.089. 3rd #11 兒島 弘訓 +0.471.",
+        "#72 大山 正芳 and #111 Z.Falcon DNF.",
+        "Full classification awaiting official sheet.",
+        "Penalties awaiting official sheet."
+      ]
+    },
+    {
       "id": "gr86pro-rd6-q",
       "race_id": "2026-scr4-suzuka-vgranz",
       "related": true,
@@ -7236,6 +7311,83 @@
       ],
       "notes": [
         "#337 徳升 広平 starts P18 (row 9) after #160's 3-place drop."
+      ]
+    },
+    {
+      "id": "gr86pro-rd6-race",
+      "race_id": "2026-scr4-suzuka-vgranz",
+      "related": true,
+      "related_label": "Team / related: Kohei Tokumasu (徳升 広平), T-Style, prepares Ross's car",
+      "title": "GR86/BRZ Cup Professional Series Rd.6 race (PROVISIONAL)",
+      "title_ja": "GR86/BRZ Cup プロフェッショナルシリーズ 決勝 暫定結果表",
+      "date": "2026-10-04",
+      "start": "11:56:13",
+      "finish": "12:20:05",
+      "weather": "Cloudy",
+      "track": "Dry",
+      "status": "provisional",
+      "entries": 38,
+      "starters": 38,
+      "finishers": 36,
+      "source": "https://apps.mobilityland.co.jp/info/download/--9q_u/191150",
+      "source_file": "suzuka_rd4_ml191150.pdf",
+      "method": "scanned PDF; #337 and the headline read from the provisional sheet. Full classification to come.",
+      "rows": [
+        {
+          "pos": "12",
+          "penalty_ref": null,
+          "no": "337",
+          "name": "徳升 広平",
+          "team": "瀬戸製作所 DEGIMO TMR GR86",
+          "type": "ZN8",
+          "tyre": "DL/BS",
+          "laps": "8",
+          "total": "24'01.616",
+          "gap": "9.500",
+          "gap_prev": "0.348",
+          "best": "2'28.347",
+          "highlight": "primary"
+        }
+      ],
+      "fastest_lap": {
+        "no": "123",
+        "name": "松井 孝允",
+        "time": "2'27.033",
+        "lap": "6/8",
+        "kmh": "142.180"
+      },
+      "safety_car": [
+        "SC 12:00:07 (lap 1) to 12:12:42 (lap 5)"
+      ],
+      "penalties": [
+        {
+          "no": "337",
+          "decision": "Black-and-white flag for multiple off-track excursions (SUZUKA CHAMPION CUP RACE series rules Art. 59-6). The same flag was shown to #1, #32, #34, #360 and #708.",
+          "ja": "黒白旗提示（複数回の走路外走行、SUZUKA CHAMPION CUP RACEシリーズ規則 第59条6）。同じ旗はNo.1、No.32、No.34、No.360、No.708にも提示。"
+        },
+        {
+          "ref": "*1",
+          "no": "199",
+          "decision": "5 seconds added to the result for a false start (SUZUKA CHAMPION CUP RACE series rules Art. 55-8)",
+          "ja": "競技結果に対して5秒加算（反則スタート、SUZUKA CHAMPION CUP RACEシリーズ規則 第55条8）"
+        },
+        {
+          "ref": "*2",
+          "no": "87",
+          "decision": "30 seconds added to the result for dangerous driving (SUZUKA CHAMPION CUP RACE series rules Art. 60-1 (1))",
+          "ja": "競技結果に対して30秒加算（危険なドライブ行為、SUZUKA CHAMPION CUP RACEシリーズ規則 第60条1①）"
+        },
+        {
+          "ref": "*3",
+          "no": "708",
+          "decision": "30 seconds added to the result for dangerous driving (SUZUKA CHAMPION CUP RACE series rules Art. 60-1 (2))",
+          "ja": "競技結果に対して30秒加算（危険なドライブ行為、SUZUKA CHAMPION CUP RACEシリーズ規則 第60条1②）"
+        }
+      ],
+      "notes": [
+        "#337 徳升 広平: P12 from grid P18 (+6).",
+        "Winner #121 蒲生 尚弥, 23'52.116.",
+        "Full classification to come."
       ]
     },
     {
