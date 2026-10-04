@@ -66,11 +66,12 @@
         "date": "2026-10-03/04",
         "car": "#213 Circuit Orange Racing (VITA-01)",
         "quali": "P10 of 35, 2'26.488 (+1.080), PROVISIONAL",
-        "race": "Sun 4 Oct, 8 laps or 25 min (time not on the sheets; \"mid-afternoon\" per the Suzuka expert, unconfirmed)",
+        "race": "P6 of 31 classified, from grid P10, 8 laps, 20'22.927, +10.279; best 2'29.049 (unofficial)",
         "conditions": "Fine, dry",
         "status": "provisional",
         "sessions": [
-          "scr4-vita-q"
+          "scr4-vita-q",
+          "scr4-vita-race"
         ]
       }
     ],
@@ -6517,21 +6518,21 @@
     {
       "id": "scr4-vgranz-race",
       "race_id": "2026-scr4-suzuka-vgranz",
-      "title": "SCR Rd.4 v.Granz race (PROVISIONAL)",
-      "title_ja": "v.Granz 決勝 暫定結果表",
+      "title": "SCR Rd.4 v.Granz race (official)",
+      "title_ja": "v.Granz 決勝 正式結果表",
       "date": "2026-10-04",
       "start": "13:30:28",
       "finish": "14:00:01",
       "weather": "Cloudy",
       "track": "Dry",
-      "status": "provisional",
+      "status": "official",
       "entries": 23,
       "starters": 22,
       "finishers": 21,
       "required_laps": "5",
-      "source": "https://apps.mobilityland.co.jp/info/download/--9q_u/191160",
-      "source_file": "suzuka_rd4_ml191160.pdf",
-      "method": "scanned PDF, transcribed from the provisional sheet No.39.",
+      "source": "https://apps.mobilityland.co.jp/info/download/--9q_u/191166",
+      "source_file": "suzuka_rd4_ml191166.pdf",
+      "method": "scanned PDF, transcribed from the official sheet No.42. Provisional sheet No.39 had the same classification.",
       "rows": [
         {
           "pos": "1",
@@ -7609,20 +7610,20 @@
       "race_id": "2026-scr4-suzuka-vgranz",
       "related": true,
       "related_label": "Team / related: Kohei Tokumasu (徳升 広平), T-Style, prepares Ross's car",
-      "title": "GR86/BRZ Cup Professional Series Rd.6 race (PROVISIONAL)",
-      "title_ja": "GR86/BRZ Cup プロフェッショナルシリーズ 決勝 暫定結果表",
+      "title": "GR86/BRZ Cup Professional Series Rd.6 race (official)",
+      "title_ja": "GR86/BRZ Cup プロフェッショナルシリーズ 決勝 正式結果表",
       "date": "2026-10-04",
       "start": "11:56:13",
       "finish": "12:20:05",
       "weather": "Cloudy",
       "track": "Dry",
-      "status": "provisional",
+      "status": "official",
       "entries": 38,
       "starters": 38,
       "finishers": 36,
-      "source": "https://apps.mobilityland.co.jp/info/download/--9q_u/191150",
-      "source_file": "suzuka_rd4_ml191150.pdf",
-      "method": "scanned PDF; #337 and the headline read from the provisional sheet. Full classification to come.",
+      "source": "https://apps.mobilityland.co.jp/info/download/--9q_u/191172",
+      "source_file": "suzuka_rd4_ml191172.pdf",
+      "method": "scanned PDF; #337 and the headline read from the official sheet No.44. Full classification to come.",
       "rows": [
         {
           "pos": "12",
@@ -7670,6 +7671,12 @@
         },
         {
           "ref": "*3",
+          "no": "186",
+          "decision": "30 seconds added to the result for overtaking under yellow flags (ISC Appendix H 2.5.5 b)",
+          "ja": "競技結果に対して30秒加算（黄旗中の追越し、国際モータースポーツ競技規則 付則H項 2.5.5 b）"
+        },
+        {
+          "ref": "*4",
           "no": "708",
           "decision": "30 seconds added to the result for dangerous driving (SUZUKA CHAMPION CUP RACE series rules Art. 60-1 (2))",
           "ja": "競技結果に対して30秒加算（危険なドライブ行為、SUZUKA CHAMPION CUP RACEシリーズ規則 第60条1②）"
@@ -11503,7 +11510,79 @@
         }
       ],
       "notes": [
-        "Race Sun 4 Oct (8 laps or 25 min). Grid sheet not yet published."
+        "Two red flags; the second ended the session."
+      ]
+    },
+    {
+      "id": "scr4-vita-race",
+      "race_id": "kyle-2026-scr4-suzuka-vita",
+      "driver": "Kyle Wynne",
+      "title": "SCR Rd.4 VITA race (UNOFFICIAL)",
+      "title_ja": "VITA 決勝（非公式・ライブタイミング）",
+      "date": "2026-10-04",
+      "status": "unofficial",
+      "starters": 33,
+      "finishers": 31,
+      "method": "MYLAPS Speedhive live timing (unofficial). Official Suzuka sheet not posted yet. https://speedhive.mylaps.com/events/3733634",
+      "rows": [
+        {
+          "pos": "1",
+          "no": "85",
+          "name": "西尾 和早",
+          "team": "ｸﾛｰｽﾞｱｯﾌﾟ制動屋VITA",
+          "laps": "8",
+          "total": "20'12.648"
+        },
+        {
+          "pos": "2",
+          "no": "94",
+          "name": "伊藤 慎之典",
+          "team": "RSかなやｴﾝﾄﾞﾚｽVITA",
+          "laps": "8",
+          "gap": "0.214"
+        },
+        {
+          "pos": "3",
+          "no": "276",
+          "name": "有岡 綾平",
+          "team": "ﾐｻﾜﾀｲﾔFS制動屋Moty's恵比寿",
+          "laps": "8",
+          "gap": "3.693",
+          "best": "2'27.705"
+        },
+        {
+          "pos": "5",
+          "no": "214",
+          "name": "Burton Hana",
+          "team": "Circuit Orange Racing",
+          "laps": "8",
+          "total": "20'21.514",
+          "gap": "8.866",
+          "best": "2'28.703",
+          "highlight": "team"
+        },
+        {
+          "pos": "6",
+          "no": "213",
+          "name": "Kyle Wynne",
+          "team": "Circuit Orange Racing",
+          "laps": "8",
+          "total": "20'22.927",
+          "gap": "10.279",
+          "best": "2'29.049",
+          "highlight": "primary"
+        }
+      ],
+      "fastest_lap": {
+        "no": "276",
+        "name": "有岡 綾平",
+        "time": "2'27.705"
+      },
+      "notes": [
+        "#213 Kyle Wynne: P6 from grid P10. #214 Burton Hana: P5 from grid P2.",
+        "Winner #85 西尾 和早, 20'12.648. 2nd #94 伊藤 慎之典 +0.214. 3rd #276 有岡 綾平 +3.693, fastest lap 2'27.705.",
+        "Full classification awaiting official sheet.",
+        "Penalties awaiting official sheet."
       ]
     }
   ]
