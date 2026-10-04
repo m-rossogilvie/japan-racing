@@ -334,13 +334,13 @@
           "grid": "P18, row 9, alongside #133"
         },
         "race": {
-          "position": "P17 of 23, from grid P18 (unofficial)",
+          "position": "P16 of 21 classified, from grid P18 (provisional)",
           "laps": 8,
-          "total_time": "34'01.255",
+          "total_time": "29'59.572",
           "gap": "+26.198",
-          "best_lap_ross": "2'19.692 (lap 3)",
-          "winner": "#75 金澤 力也, 33'35.057",
-          "note": "Unofficial: MYLAPS Speedhive live timing. Official Suzuka sheet not posted yet. Full classification and any penalties are awaiting the official sheet."
+          "best_lap_ross": "2'19.693",
+          "winner": "#75 金澤 力也, 29'33.374",
+          "note": "Provisional sheet No.39. Entry 23, 22 started, 21 classified. Red flag 13:31:15 (lap 0), restart 13:41:00. Safety car 13:50:01 (lap 4) to 13:55:29 (lap 6)."
         }
       },
       "notes": [
@@ -348,7 +348,7 @@
         "#213 was driven by Jure Portelli at SCR Rd1 (Q 2:15.185); not entered in v.Granz at Rd2.",
         "VITA qualifying is provisional (14:50-15:06 JST, 35 starters, two red flags, the second ended the session). Circuit Orange: #214 Hana Burton P2, 2'25.605, front row, +0.197 to pole; #213 Kyle Wynne P10, 2'26.488. VITA race Sun 4 Oct, mid-afternoon, 8 laps or 25 minutes.",
         "Team / related: Kohei Tokumasu (徳升 広平, romanised, unconfirmed), T-Style, prepares Ross's car. GR86/BRZ Cup Professional Series Rd.6 qualifying: P19, 2'26.364, +1.051. Grid P18 after #160's 3-place drop. Race Sun 4 Oct is provisional: P12 (+6 from P18), 24'01.616, +9.500, best 2'28.347, black-and-white flag for multiple off-track excursions.",
-        "v.Granz race result is unofficial, from MYLAPS Speedhive live timing. The official Suzuka sheet is not posted yet."
+        "v.Granz race is provisional (Suzuka sheet No.39): #213 Ross Ogilvie P16 from grid P18, 8 laps, 29'59.572, +26.198, best 2'19.693. 22 started, 21 classified."
       ],
       "sources": [
         "https://www.suzukacircuit.jp/scr/ (2026 SCR schedule)",
@@ -357,7 +357,8 @@
         "https://apps.mobilityland.co.jp/info/download/--9q_u/190998 (VITA qualifying, provisional)",
         "https://apps.mobilityland.co.jp/info/download/--9q_u/190944 (GR86/BRZ Cup Pro Rd.6 qualifying, official)",
         "https://apps.mobilityland.co.jp/info/download/--9q_u/190996 (GR86/BRZ Cup Pro Rd.6 grid, official)",
-        "https://apps.mobilityland.co.jp/info/download/--9q_u/191150 (GR86/BRZ Cup Pro Rd.6 race, provisional)"
+        "https://apps.mobilityland.co.jp/info/download/--9q_u/191150 (GR86/BRZ Cup Pro Rd.6 race, provisional)",
+        "https://apps.mobilityland.co.jp/info/download/--9q_u/191160 (v.Granz race, provisional)"
       ],
       "result_race_ids": [
         "2026-scr4-suzuka-vgranz",

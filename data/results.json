@@ -6513,79 +6513,370 @@
         "#213 Ross Ogilvie P18, row 9 alongside #133."
       ]
     },
+
     {
       "id": "scr4-vgranz-race",
       "race_id": "2026-scr4-suzuka-vgranz",
-      "title": "SCR Rd.4 v.Granz race (UNOFFICIAL)",
-      "title_ja": "v.Granz 決勝（非公式・ライブタイミング）",
+      "title": "SCR Rd.4 v.Granz race (PROVISIONAL)",
+      "title_ja": "v.Granz 決勝 暫定結果表",
       "date": "2026-10-04",
-      "start": "13:25",
-      "status": "unofficial",
+      "start": "13:30:28",
+      "finish": "14:00:01",
+      "weather": "Cloudy",
+      "track": "Dry",
+      "status": "provisional",
       "entries": 23,
-      "starters": 23,
-      "method": "MYLAPS Speedhive live timing (unofficial). Official Suzuka sheet not posted yet.",
+      "starters": 22,
+      "finishers": 21,
+      "required_laps": "5",
+      "source": "https://apps.mobilityland.co.jp/info/download/--9q_u/191160",
+      "source_file": "suzuka_rd4_ml191160.pdf",
+      "method": "scanned PDF, transcribed from the provisional sheet No.39.",
       "rows": [
         {
           "pos": "1",
           "no": "75",
           "name": "金澤 力也",
           "team": "FIVE CORE JAPAN RACING",
+          "type": "v.Granz",
+          "tyre": "MI",
           "laps": "8",
-          "total": "33'35.057"
+          "total": "29'33.374",
+          "best": "2'14.510"
         },
         {
           "pos": "2",
           "no": "2",
           "name": "藤原 優汰",
           "team": "ｱｷﾗﾝﾄﾞv.Granz",
+          "type": "v.Granz",
+          "tyre": "MI",
           "laps": "8",
+          "total": "29'33.463",
           "gap": "0.089",
+          "gap_prev": "0.089",
           "best": "2'14.385"
         },
         {
           "pos": "3",
           "no": "11",
-          "name": "兒島 弘訓",
+          "name": "児島 弘訓",
           "team": "Z-Racing",
+          "type": "v.Granz",
+          "tyre": "MI",
           "laps": "8",
-          "gap": "0.471"
+          "total": "29'33.845",
+          "gap": "0.471",
+          "gap_prev": "0.382",
+          "best": "2'14.746"
         },
         {
-          "pos": "17",
+          "pos": "4",
+          "no": "82",
+          "name": "竹本 優月輝",
+          "team": "群馬ﾄﾖﾍﾟｯﾄ Team RiNoA",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'35.296",
+          "gap": "1.922",
+          "gap_prev": "1.451",
+          "best": "2'15.754"
+        },
+        {
+          "pos": "5",
+          "no": "58",
+          "name": "入谷 敦司",
+          "team": "ｶﾌﾞｶ V.Glanz",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'36.030",
+          "gap": "2.656",
+          "gap_prev": "0.734",
+          "best": "2'15.676"
+        },
+        {
+          "pos": "6",
+          "penalty_ref": "*1",
+          "no": "10",
+          "name": "山下 亮生",
+          "team": "ｱｷﾗﾝﾄﾞv.Granz",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'42.258",
+          "gap": "8.884",
+          "gap_prev": "6.228",
+          "best": "2'15.942"
+        },
+        {
+          "pos": "7",
+          "no": "15",
+          "name": "吉村 一悟",
+          "team": "NEXSEED V.granz",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'43.294",
+          "gap": "9.920",
+          "gap_prev": "1.036",
+          "best": "2'17.983"
+        },
+        {
+          "pos": "8",
+          "no": "19",
+          "name": "中島 功",
+          "team": "ｱｷﾗﾝﾄﾞv.Granz",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'43.886",
+          "gap": "10.512",
+          "gap_prev": "0.592",
+          "best": "2'17.029"
+        },
+        {
+          "pos": "9",
+          "no": "81",
+          "name": "長谷川 睦",
+          "team": "CLEANLIFE ITAL ABBEY",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'44.110",
+          "gap": "10.736",
+          "gap_prev": "0.224",
+          "best": "2'17.967"
+        },
+        {
+          "pos": "10",
+          "no": "18",
+          "name": "大橋 孝行",
+          "team": "ｵｵﾊｼ@ASLAN V.Granz",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'48.073",
+          "gap": "14.699",
+          "gap_prev": "3.963",
+          "best": "2'18.293"
+        },
+        {
+          "pos": "11",
+          "no": "9",
+          "name": "関 正俊",
+          "team": "ｸﾞﾗｯｸ&kts",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'48.995",
+          "gap": "15.621",
+          "gap_prev": "0.922",
+          "best": "2'16.413"
+        },
+        {
+          "pos": "12",
+          "penalty_ref": "*2",
+          "no": "12",
+          "name": "金久 憲司",
+          "team": "ONELAPCOATｱｼｽﾄ青春親父",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'49.780",
+          "gap": "16.406",
+          "gap_prev": "0.785",
+          "best": "2'17.674"
+        },
+        {
+          "pos": "13",
+          "no": "55",
+          "name": "MOTOTINO",
+          "team": "A-PEX☆Granz",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'52.247",
+          "gap": "18.873",
+          "gap_prev": "2.467",
+          "best": "2'19.482"
+        },
+        {
+          "pos": "14",
+          "no": "133",
+          "name": "TOMISAN",
+          "team": "AKIRAND VGRANZ",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'52.639",
+          "gap": "19.265",
+          "gap_prev": "0.392",
+          "best": "2'19.042"
+        },
+        {
+          "pos": "15",
+          "penalty_ref": "*3",
+          "no": "57",
+          "name": "Aki HATANO",
+          "team": "FIVE CORE JAPAN RACING",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "29'54.435",
+          "gap": "21.061",
+          "gap_prev": "1.796",
+          "best": "2'18.062"
+        },
+        {
+          "pos": "16",
           "no": "213",
           "name": "Ross Ogilvie",
           "team": "shinko1 with COR",
+          "type": "v.Granz",
+          "tyre": "MI",
           "laps": "8",
-          "total": "34'01.255",
+          "total": "29'59.572",
           "gap": "26.198",
-          "best": "2'19.692",
-          "best_lap": "3",
+          "gap_prev": "5.137",
+          "best": "2'19.693",
           "highlight": "primary"
         },
         {
-          "pos": "DNF",
-          "no": "72",
-          "name": "大山 正芳",
-          "team": "ﾀﾞｲﾜNｱｷﾗﾝﾄﾞv.Granz"
+          "pos": "17",
+          "penalty_ref": "*3",
+          "no": "51",
+          "name": "矢倉 完治",
+          "team": "ﾙ･ﾍﾞｰﾙﾚｰｼﾝｸﾞv.Granz",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "30'00.877",
+          "gap": "27.503",
+          "gap_prev": "1.305",
+          "best": "2'17.694"
         },
         {
-          "pos": "DNF",
+          "pos": "18",
+          "no": "6",
+          "name": "岡部 隆志",
+          "team": "岡部ｼｽﾃﾑHFRP",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "30'02.148",
+          "gap": "28.774",
+          "gap_prev": "1.271",
+          "best": "2'21.119"
+        },
+        {
+          "pos": "19",
+          "no": "16",
+          "name": "YASUHR",
+          "team": "SHR ABSSA v.Granz",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "30'10.538",
+          "gap": "37.164",
+          "gap_prev": "8.390",
+          "best": "2'23.448"
+        },
+        {
+          "pos": "20",
+          "no": "28",
+          "name": "依田 学嗣",
+          "team": "ﾌｫｰﾐｭﾗE&D WEST v.Granz",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "30'10.676",
+          "gap": "37.302",
+          "gap_prev": "0.138",
+          "best": "2'23.907"
+        },
+        {
+          "pos": "21",
+          "no": "70",
+          "name": "中野 慶太",
+          "team": "HFRP Daiwa Granz",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "8",
+          "total": "30'19.837",
+          "gap": "46.463",
+          "gap_prev": "9.161",
+          "best": "2'24.457"
+        },
+        {
+          "pos": "NC",
+          "penalty_ref": "*4",
+          "no": "72",
+          "name": "大山 正芳",
+          "team": "ﾀﾞｲﾜNｱｷﾗﾝﾄﾞv.Granz",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "3",
+          "total": "16'46.636",
+          "gap": "5Laps",
+          "gap_prev": "5Laps",
+          "best": "2'18.726"
+        },
+        {
+          "pos": "NC",
           "no": "111",
           "name": "Z.Falcon",
-          "team": "Z-Racing"
+          "team": "Z-Racing",
+          "type": "v.Granz",
+          "tyre": "MI",
+          "laps": "0"
         }
       ],
       "fastest_lap": {
         "no": "2",
         "name": "藤原 優汰",
-        "time": "2'14.385"
+        "time": "2'14.385",
+        "lap": "4/8",
+        "kmh": "155.562"
       },
+      "red_flags": [
+        "13:31:15 (lap 0); restart 13:41:00 (lap 1)"
+      ],
+      "safety_car": [
+        "SC ended 13:44:50 (lap 2)",
+        "SC 13:50:01 (lap 4) to 13:55:29 (lap 6)"
+      ],
+      "penalties": [
+        {
+          "ref": "*1",
+          "no": "10",
+          "decision": "5 seconds added for the start procedure (SUZUKA CHAMPION CUP RACE series rules Art. 55)",
+          "ja": "タイムペナルティ5秒（SUZUKA CHAMPION CUP RACEシリーズ規則 第55条、スタート手順）"
+        },
+        {
+          "ref": "*2",
+          "no": "12",
+          "decision": "Admonition for overtaking under the safety car (ISC Appendix H 2.10.10)",
+          "ja": "訓戒（国際モータースポーツ競技規則 付則H項 2.10.10、SC活動中の追越し）"
+        },
+        {
+          "ref": "*3",
+          "no": "57, 51",
+          "decision": "5 seconds added for a false start (SUZUKA CHAMPION CUP RACE series rules Art. 55-8)",
+          "ja": "タイムペナルティ5秒（SUZUKA CHAMPION CUP RACEシリーズ規則 第55条8、反則スタート）"
+        },
+        {
+          "ref": "*4",
+          "no": "72",
+          "decision": "Drive-through for dangerous driving (SUZUKA CHAMPION CUP RACE series rules Art. 60-1 (1)); retired before it was served",
+          "ja": "ドライブスルーペナルティ（SUZUKA CHAMPION CUP RACEシリーズ規則 第60条1①、危険なドライブ行為、リタイアにより不履行）"
+        }
+      ],
       "notes": [
-        "#213 Ross Ogilvie: P17 of 23 from grid P18.",
-        "Winner #75 金澤 力也, 33'35.057. 2nd #2 藤原 優汰 +0.089. 3rd #11 兒島 弘訓 +0.471.",
-        "#72 大山 正芳 and #111 Z.Falcon DNF.",
-        "Full classification awaiting official sheet.",
-        "Penalties awaiting official sheet."
+        "#213 Ross Ogilvie: P16 from grid P18, 8 laps, 29'59.572, +26.198, best 2'19.693.",
+        "Winner #75 金澤 力也, 29'33.374. 2nd #2 藤原 優汰 +0.089, fastest lap 2'14.385. 3rd #11 児島 弘訓 +0.471.",
+        "Not classified below the 5-lap line: #72 大山 正芳, 3 laps, and #111 Z.Falcon, 0 laps."
       ]
     },
     {
