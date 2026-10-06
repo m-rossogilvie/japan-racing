@@ -84,6 +84,13 @@ html[lang="ja"] :is(h1, h2, h3, .circuit, .class-head, .pen-title) {
   text-wrap: balance;
 }
 
+html[lang="ja"] .lead h1 {
+  overflow-wrap: normal;
+  word-break: keep-all;
+  white-space: nowrap;
+  text-wrap: nowrap;
+}
+
 @supports (word-break: auto-phrase) {
   html[lang="ja"] :is(h1, h2, h3, .circuit, .class-head, .pen-title) {
     word-break: auto-phrase;
@@ -568,8 +575,14 @@ a:focus-visible {
 .lead-grid > * { min-width: 0; }
 
 .lead h1 {
-  font-size: clamp(3.5rem, 19vw, 8rem);
+  /* 17vw keeps OKAYAMA on one line inside the padded column from 360px up, including a classic scrollbar. */
+  font-size: clamp(2.6rem, 17vw, 8rem);
   max-width: 100%;
+  white-space: nowrap;
+  text-wrap: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+  hyphens: none;
 }
 
 .section-title {

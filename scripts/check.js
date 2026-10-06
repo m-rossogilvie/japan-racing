@@ -497,6 +497,25 @@ for (const url of urls) {
     const sydney = await page.locator(".timetable [data-sydney]").first().innerText();
     assert.match(sydney, /AEDT/, `${url} Sydney clock`);
     assert.doesNotMatch(sydney, /AEST/, `${url} should be on daylight time`);
+    for (const name of url === "/" ? ["OKAYAMA", "SUZUKA"] : ["岡山", "鈴鹿", "OKAYAMA", "SUZUKA"]) {
+      const line = await page.evaluate((name) => {
+        const h1 = document.querySelector(".lead h1");
+        h1.textContent = name;
+        const range = document.createRange();
+        range.selectNodeContents(h1);
+        const rects = [...range.getClientRects()].filter((rect) => rect.width > 0 && rect.height > 0);
+        const style = getComputedStyle(h1);
+        return {
+          n: rects.length,
+          scroll: document.documentElement.scrollWidth,
+          inner: window.innerWidth,
+          whiteSpace: style.whiteSpace,
+        };
+      }, name);
+      assert.equal(line.n, 1, `${url} hero "${name}" should stay on one line`);
+      assert.equal(line.whiteSpace, "nowrap", `${url} hero title nowrap`);
+      assert.ok(line.scroll <= line.inner, `${url} hero "${name}" widened the page`);
+    }
   }
   if (url === "/races/2026-scr4-suzuka-vgranz") {
     const formation = await page.locator('[data-iso="2026-10-04T13:25:00+09:00"]').innerText();
@@ -513,6 +532,25 @@ for (const url of urls) {
     }
   }
 }
+const narrow = await (await browser.newContext({ ...phone, viewport: { ...phone.viewport, width: 360 } })).newPage();
+for (const [url, names] of [["/", ["OKAYAMA", "SUZUKA"]], ["/ja", ["岡山", "鈴鹿", "OKAYAMA", "SUZUKA"]]]) {
+  await narrow.goto(base + url, { waitUntil: "load" });
+  await narrow.evaluate(() => document.fonts.ready);
+  for (const name of names) {
+    const line = await narrow.evaluate((name) => {
+      const h1 = document.querySelector(".lead h1");
+      h1.textContent = name;
+      const range = document.createRange();
+      range.selectNodeContents(h1);
+      const rects = [...range.getClientRects()].filter((rect) => rect.width > 0 && rect.height > 0);
+      return { n: rects.length, scroll: document.documentElement.scrollWidth, inner: window.innerWidth };
+    }, name);
+    assert.equal(line.inner, 360, `${url} narrow viewport`);
+    assert.equal(line.n, 1, `${url} @360 hero "${name}" should stay on one line`);
+    assert.ok(line.scroll <= line.inner, `${url} @360 hero "${name}" widened the page`);
+  }
+}
+await narrow.close();
 await browser.close();
 assert.deepEqual(overflows, [], `iPhone 14 WebKit page overflow:\n${overflows.join("\n")}`);
 
