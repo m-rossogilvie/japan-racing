@@ -64,8 +64,92 @@
       ],
       "sources": [
         "https://www.fsw.tv/motorsports/result/pdf-cms/0ea4c3f3a44574eeb42076dc8a3a1b162fa3ba84.pdf",
-        "https://www.fsw.tv/motorsports/result/pdf-cms/aaed763abd0b5886fe2e73b3c686e580284b1f39.pdf"
-      ]
+        "https://www.fsw.tv/motorsports/result/pdf-cms/aaed763abd0b5886fe2e73b3c686e580284b1f39.pdf",
+        "https://www.fsw.tv/freeinfo/pdf-cms/1e002ba8192bd5911a04d4ba5f64291fc4e9ad1e.pdf (official Fuji timetable, FCR-VITA Rd.1 weekend)"
+      ],
+      "timetable": {
+        "sources": {
+          "timetable": {
+            "label": "Official Fuji timetable, FCR-VITA Rd.1 weekend",
+            "url": "https://www.fsw.tv/freeinfo/pdf-cms/1e002ba8192bd5911a04d4ba5f64291fc4e9ad1e.pdf"
+          }
+        },
+        "days": [
+          {
+            "date": "2026-05-07",
+            "items": [
+              {
+                "start": "08:00",
+                "end": "16:00",
+                "label": "West open",
+                "source": "timetable"
+              },
+              {
+                "start": "07:00",
+                "end": "16:00",
+                "label": "East open",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-05-08",
+            "items": [
+              {
+                "start": "08:00",
+                "end": "16:00",
+                "label": "West open",
+                "source": "timetable"
+              },
+              {
+                "start": "06:45",
+                "end": "16:00",
+                "label": "East open",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-05-09",
+            "items": [
+              {
+                "start": "06:30",
+                "end": "16:30",
+                "label": "West open",
+                "source": "timetable"
+              },
+              {
+                "start": "06:00",
+                "end": "16:30",
+                "label": "East open",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-05-10",
+            "items": [
+              {
+                "start": "06:45",
+                "end": "16:30",
+                "label": "West open",
+                "source": "timetable"
+              },
+              {
+                "start": "06:15",
+                "end": "16:30",
+                "label": "East open",
+                "source": "timetable"
+              }
+            ]
+          }
+        ],
+        "gaps": [
+          "West and East are the open hours printed on the timetable.",
+          "FCR-VITA practice, scrutineering, the briefing, qualifying, the race start and the finish were not read cleanly. They are omitted rather than guessed (unconfirmed).",
+          "The official result sheet records the race start at 10:29:47 JST. That is the start that happened, not a scheduled clock."
+        ]
+      }
     },
     {
       "id": "kyle-2026-scr2-suzuka-vita",
@@ -103,8 +187,134 @@
       ],
       "sources": [
         "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/0613_vita_q.pdf",
-        "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/0614_vita_f.pdf"
-      ]
+        "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/0614_vita_f.pdf",
+        "https://apps.mobilityland.co.jp/info/download/vhYdiw/181765 (official timetable, notice No.1, 1 Jun 2026)",
+        "https://apps.mobilityland.co.jp/info/download/vhYdiw/182658 (VITA start procedure)"
+      ],
+      "timetable": {
+        "sources": {
+          "timetable": {
+            "label": "Official timetable, notice No.1 (1 Jun 2026)",
+            "url": "https://apps.mobilityland.co.jp/info/download/vhYdiw/181765"
+          },
+          "start": {
+            "label": "VITA start procedure",
+            "url": "https://apps.mobilityland.co.jp/info/download/vhYdiw/182658"
+          }
+        },
+        "days": [
+          {
+            "date": "2026-06-12",
+            "items": [
+              {
+                "start": "07:00",
+                "end": "16:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-06-13",
+            "items": [
+              {
+                "start": "07:00",
+                "end": "16:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "09:05",
+                "label": "Spectator gate opens",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-06-14",
+            "items": [
+              {
+                "start": "07:00",
+                "end": "15:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "08:15",
+                "label": "Spectator gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "10:30",
+                "label": "VITA grid reconnaissance starts",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:33",
+                "label": "VITA pit exit closes",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:40",
+                "label": "VITA formation lap, 5-minute signal",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:42",
+                "label": "VITA formation lap, 3-minute signal",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:44",
+                "label": "VITA formation lap, 1-minute signal",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:44:45",
+                "label": "VITA formation lap, 15-second signal",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:45",
+                "label": "VITA formation lap",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "20:30",
+                "label": "Motorsport gate closes",
+                "source": "timetable"
+              }
+            ]
+          }
+        ],
+        "gaps": [
+          "Practice, scrutineering, the briefing and VITA qualifying are on the timetable, but those clocks were not read cleanly. They are omitted rather than guessed (unconfirmed).",
+          "The green light comes after the formation lap, when the red lights go out. It is not a fixed time. The race is 8 laps or 25 minutes.",
+          "The motorsport gate is printed as open all day on Friday 12 Jun and Saturday 13 Jun.",
+          "The official result sheet records the race start at 10:50:09 JST. That is the start that happened, not a scheduled clock."
+        ]
+      }
     },
     {
       "id": "2026-motegi-ccr3-vgranz",
@@ -157,8 +367,179 @@
         "YouTube live stream Sat 27 Jun: https://www.youtube.com/live/vKNEJ75jyX8."
       ],
       "sources": [
-        "https://www.mr-motegi.jp/result_m/2026/4wheel/ (official result PDFs; copies in sources/)"
-      ]
+        "https://www.mr-motegi.jp/result_m/2026/4wheel/ (official result PDFs; copies in sources/)",
+        "https://apps.mobilityland.co.jp/info/download/gkJGVZ/183797 (official timetable, notice No.10, 27 Jun 2026)",
+        "https://apps.mobilityland.co.jp/info/download/gkJGVZ/183884 (v.Granz start procedure, 27 Jun 2026)"
+      ],
+      "timetable": {
+        "sources": {
+          "timetable": {
+            "label": "Official timetable, notice No.10 (27 Jun 2026)",
+            "url": "https://apps.mobilityland.co.jp/info/download/gkJGVZ/183797"
+          },
+          "start": {
+            "label": "v.Granz start procedure (27 Jun 2026)",
+            "url": "https://apps.mobilityland.co.jp/info/download/gkJGVZ/183884"
+          }
+        },
+        "days": [
+          {
+            "date": "2026-06-26",
+            "items": [
+              {
+                "start": "05:00",
+                "label": "Gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "07:30",
+                "end": "12:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "13:30",
+                "end": "18:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-06-27",
+            "items": [
+              {
+                "start": "05:00",
+                "label": "Gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "06:30",
+                "end": "17:30",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "14:15",
+                "label": "v.Granz Race 1 grid reconnaissance starts",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "14:18",
+                "label": "v.Granz Race 1 pit exit closes",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "14:22",
+                "label": "v.Granz Race 1 formation lap, 3-minute signal",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "14:24",
+                "label": "v.Granz Race 1 formation lap, 1-minute signal",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "14:24:45",
+                "label": "v.Granz Race 1 formation lap, 15-second signal",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "14:25",
+                "label": "v.Granz Race 1 formation lap",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              }
+            ]
+          },
+          {
+            "date": "2026-06-28",
+            "items": [
+              {
+                "start": "05:00",
+                "label": "Gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "07:00",
+                "end": "18:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "10:05",
+                "label": "v.Granz Race 2 grid reconnaissance starts",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "10:08",
+                "label": "v.Granz Race 2 pit exit closes",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "10:12",
+                "label": "v.Granz Race 2 formation lap, 3-minute signal",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "10:14",
+                "label": "v.Granz Race 2 formation lap, 1-minute signal",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "10:14:45",
+                "label": "v.Granz Race 2 formation lap, 15-second signal",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "10:15",
+                "label": "v.Granz Race 2 formation lap",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              }
+            ]
+          }
+        ],
+        "gaps": [
+          "Practice and qualifying clocks were not read cleanly from the timetable. They are omitted rather than guessed (unconfirmed).",
+          "The green light comes after the formation lap. It is not a fixed time. Race 1 is 8 laps or 25 minutes. Race 2 is 12 laps or 35 minutes.",
+          "The official result sheets record the starts that happened: Race 1 at 14:29:14 JST and Race 2 at 10:20:21 JST."
+        ]
+      }
     },
     {
       "id": "2026-mec120-rd1-suzuka",
@@ -204,8 +585,156 @@
       ],
       "sources": [
         "https://www.suzukacircuit.jp/result_s/2026/suzukachampioncuprace/ (official scanned result PDFs; copies in sources/)",
-        "https://vita-club.co.jp/mec120/ (2026 MEC120 calendar)"
-      ]
+        "https://vita-club.co.jp/mec120/ (2026 MEC120 calendar)",
+        "https://apps.mobilityland.co.jp/info/download/xDA6R5/183997 (official timetable, notice No.1)",
+        "https://apps.mobilityland.co.jp/info/download/xDA6R5/184919 (MEC120 start procedure, 11 Jul 2026)",
+        "https://apps.mobilityland.co.jp/info/download/xDA6R5/185081 (MEC120 start time, notice No.21, 12 Jul 2026)"
+      ],
+      "timetable": {
+        "sources": {
+          "timetable": {
+            "label": "Official timetable, notice No.1",
+            "url": "https://apps.mobilityland.co.jp/info/download/xDA6R5/183997"
+          },
+          "start": {
+            "label": "MEC120 start procedure (11 Jul 2026)",
+            "url": "https://apps.mobilityland.co.jp/info/download/xDA6R5/184919"
+          },
+          "clock": {
+            "label": "MEC120 start time, notice No.21 (12 Jul 2026)",
+            "url": "https://apps.mobilityland.co.jp/info/download/xDA6R5/185081"
+          }
+        },
+        "days": [
+          {
+            "date": "2026-07-10",
+            "items": [
+              {
+                "start": "07:00",
+                "end": "16:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-07-11",
+            "items": [
+              {
+                "start": "07:00",
+                "end": "16:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "07:45",
+                "label": "Spectator gate opens",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-07-12",
+            "items": [
+              {
+                "start": "07:00",
+                "end": "15:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "07:45",
+                "label": "Spectator gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "10:00",
+                "label": "MEC120 grid reconnaissance starts",
+                "source": "start",
+                "who": [
+                  "ross",
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:05",
+                "label": "MEC120 pit exit closes",
+                "source": "start",
+                "who": [
+                  "ross",
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:25",
+                "label": "MEC120 formation lap, 5-minute signal",
+                "source": "start",
+                "who": [
+                  "ross",
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:27",
+                "label": "MEC120 formation lap, 3-minute signal",
+                "source": "start",
+                "who": [
+                  "ross",
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:29",
+                "label": "MEC120 formation lap, 1-minute signal",
+                "source": "start",
+                "who": [
+                  "ross",
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:29:30",
+                "label": "MEC120 formation lap, 30-second signal",
+                "source": "start",
+                "who": [
+                  "ross",
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:30",
+                "label": "MEC120 formation lap",
+                "source": "start",
+                "who": [
+                  "ross",
+                  "kyle"
+                ]
+              },
+              {
+                "start": "10:34:48",
+                "end": "12:34:48",
+                "label": "MEC120 race",
+                "source": "clock",
+                "who": [
+                  "ross",
+                  "kyle"
+                ],
+                "kind": "race"
+              },
+              {
+                "start": "20:30",
+                "label": "Motorsport gate closes",
+                "source": "timetable"
+              }
+            ]
+          }
+        ],
+        "gaps": [
+          "Practice, scrutineering, the briefing and qualifying are on the timetable, but those clocks were not read cleanly. They are omitted rather than guessed (unconfirmed).",
+          "Notice No.21, issued at 10:40 on 12 July, names the race start and the scheduled finish. The start is a rolling start, v.Granz then VITA.",
+          "The motorsport gate is printed as open all day on Friday 10 Jul and Saturday 11 Jul."
+        ]
+      }
     },
     {
       "id": "kyle-2026-fcr-vita-rd2-fuji",
@@ -242,8 +771,22 @@
       ],
       "sources": [
         "https://www.fsw.tv/motorsports/result/pdf-cms/2cf47e5639c95c8f739d25335928b4ec319fcd69.pdf",
-        "https://www.fsw.tv/motorsports/result/pdf-cms/99110134e4208f527fa62036f4488c705443298b.pdf"
-      ]
+        "https://www.fsw.tv/motorsports/result/pdf-cms/99110134e4208f527fa62036f4488c705443298b.pdf",
+        "https://www.fsw.tv/freeinfo/pdf-cms/2e1a91c7a7be966628b512aa5c198864bb62673d.pdf (official Fuji timetable, FCR-VITA Rd.2 weekend)"
+      ],
+      "timetable": {
+        "sources": {
+          "timetable": {
+            "label": "Official Fuji timetable, FCR-VITA Rd.2 weekend",
+            "url": "https://www.fsw.tv/freeinfo/pdf-cms/2e1a91c7a7be966628b512aa5c198864bb62673d.pdf"
+          }
+        },
+        "days": [],
+        "gaps": [
+          "The official timetable covers 3-6 Sep 2026. FCR-VITA session clocks were not read cleanly. They are omitted rather than guessed (unconfirmed).",
+          "The official result sheet records the race start at 10:14:49 JST. That is the start that happened, not a scheduled clock."
+        ]
+      }
     },
     {
       "id": "2026-mec120-rd2-motegi",
@@ -292,8 +835,99 @@
       ],
       "sources": [
         "https://www.mr-motegi.jp/result_m/2026/4wheel/ (official result PDFs; copies in sources/)",
-        "https://vita-club.co.jp/mec120/ (2026 MEC120 calendar)"
-      ]
+        "https://vita-club.co.jp/mec120/ (2026 MEC120 calendar)",
+        "https://apps.mobilityland.co.jp/info/download/rnR3oQ/189446 (official timetable, notice No.2, 7 Sep 2026)"
+      ],
+      "timetable": {
+        "sources": {
+          "timetable": {
+            "label": "Official timetable, notice No.2 (7 Sep 2026)",
+            "url": "https://apps.mobilityland.co.jp/info/download/rnR3oQ/189446"
+          }
+        },
+        "days": [
+          {
+            "date": "2026-09-10",
+            "items": [
+              {
+                "start": "05:00",
+                "label": "Gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "07:30",
+                "end": "12:30",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "13:30",
+                "end": "17:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-09-11",
+            "items": [
+              {
+                "start": "05:00",
+                "label": "Gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "07:00",
+                "end": "12:30",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "13:30",
+                "end": "17:30",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-09-12",
+            "items": [
+              {
+                "start": "05:00",
+                "label": "Gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "06:30",
+                "end": "17:30",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-09-13",
+            "items": [
+              {
+                "start": "05:00",
+                "label": "Gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "06:30",
+                "end": "17:30",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              }
+            ]
+          }
+        ],
+        "gaps": [
+          "MEC free practice, scrutineering, the briefing, qualifying and the MEC120 green light are on the revised timetable, but those clocks were not read cleanly. They are omitted rather than guessed (unconfirmed).",
+          "The result sheets record what happened: free practice 08:30-09:30 JST, qualifying 13:55-14:10 JST, and the race 11:00:00-13:02:10 JST. Those clocks are not republished here as the schedule."
+        ]
+      }
     },
     {
       "id": "2026-scr4-suzuka-vgranz",
@@ -307,7 +941,7 @@
         "weekend": "2026-10-03/2026-10-04",
         "practice": "Fri 2026-10-02 special sports driving: FP1 09:10-09:30 and FP2 13:55-14:15 JST (10:10 and 14:55 AEST)",
         "qualifying": "Sat 2026-10-03 13:10-13:30 JST (14:10-14:30 AEST). Official final result, Suzuka Full Course 5.807 km, fine and dry",
-        "race": "Sun 2026-10-04 13:25 JST race start (15:25 AEDT), 8 laps or 25 minutes. Official grid sheet"
+        "race": "Sun 2026-10-04. Formation lap 13:25 JST. The green light is not a fixed time. 8 laps or 25 minutes."
       },
       "format": "Sprint race: 8 laps or 25 minutes",
       "class": "v.Granz",
@@ -363,12 +997,264 @@
         "https://apps.mobilityland.co.jp/info/download/--9q_u/191160 (v.Granz race, provisional, superseded by the official sheet)",
         "https://apps.mobilityland.co.jp/info/download/--9q_u/191166 (v.Granz race, official)",
         "https://apps.mobilityland.co.jp/info/download/--9q_u/191183 (VITA race, provisional, superseded by the official sheet)",
-        "https://apps.mobilityland.co.jp/info/download/--9q_u/191185 (VITA race, official)"
+        "https://apps.mobilityland.co.jp/info/download/--9q_u/191185 (VITA race, official)",
+        "https://apps.mobilityland.co.jp/info/download/aiw5Nd/190345 (official timetable, notice No.1, 25 Sep 2026)",
+        "https://apps.mobilityland.co.jp/info/download/aiw5Nd/190806 (v.Granz and VITA start procedure, 3 Oct 2026)"
       ],
       "result_race_ids": [
         "2026-scr4-suzuka-vgranz",
         "kyle-2026-scr4-suzuka-vita"
-      ]
+      ],
+      "timetable": {
+        "sources": {
+          "timetable": {
+            "label": "Official timetable, notice No.1 (25 Sep 2026)",
+            "url": "https://apps.mobilityland.co.jp/info/download/aiw5Nd/190345"
+          },
+          "start": {
+            "label": "v.Granz and VITA start procedure (3 Oct 2026)",
+            "url": "https://apps.mobilityland.co.jp/info/download/aiw5Nd/190806"
+          }
+        },
+        "days": [
+          {
+            "date": "2026-10-02",
+            "items": [
+              {
+                "start": "07:00",
+                "end": "16:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "10:00",
+                "label": "Spectator gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "11:40",
+                "end": "12:20",
+                "label": "GR86/BRZ Cup exclusive running, Pro",
+                "source": "timetable"
+              },
+              {
+                "start": "12:20",
+                "end": "12:50",
+                "label": "GR86/BRZ Cup exclusive running, Clubman A",
+                "source": "timetable"
+              },
+              {
+                "start": "12:50",
+                "end": "13:20",
+                "label": "GR86/BRZ Cup exclusive running, Clubman B",
+                "source": "timetable"
+              },
+              {
+                "start": "13:00",
+                "end": "14:00",
+                "label": "GR86/BRZ Cup scrutineering, Clubman A",
+                "source": "timetable"
+              },
+              {
+                "start": "14:00",
+                "end": "15:00",
+                "label": "GR86/BRZ Cup scrutineering, Clubman B",
+                "source": "timetable"
+              },
+              {
+                "start": "15:30",
+                "end": "16:30",
+                "label": "GR86/BRZ Cup scrutineering, Pro",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-03",
+            "items": [
+              {
+                "start": "07:00",
+                "end": "16:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "09:15",
+                "label": "Spectator gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "08:00",
+                "end": "08:45",
+                "label": "GR86/BRZ Cup scrutineering, Clubman",
+                "source": "timetable"
+              },
+              {
+                "start": "08:45",
+                "end": "09:10",
+                "label": "GR86/BRZ Cup scrutineering, Pro",
+                "source": "timetable"
+              },
+              {
+                "start": "10:05",
+                "end": "10:20",
+                "label": "GR86/BRZ Cup qualifying, Clubman A",
+                "source": "timetable"
+              },
+              {
+                "start": "10:35",
+                "end": "10:50",
+                "label": "GR86/BRZ Cup qualifying, Clubman B",
+                "source": "timetable"
+              },
+              {
+                "start": "11:05",
+                "end": "11:20",
+                "label": "GR86/BRZ Cup qualifying, Pro",
+                "source": "timetable"
+              }
+            ]
+          },
+          {
+            "date": "2026-10-04",
+            "items": [
+              {
+                "start": "07:00",
+                "end": "15:00",
+                "label": "Gasoline sales",
+                "source": "timetable"
+              },
+              {
+                "start": "07:45",
+                "label": "Spectator gate opens",
+                "source": "timetable"
+              },
+              {
+                "start": "13:10",
+                "label": "v.Granz grid reconnaissance starts",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "13:13",
+                "label": "v.Granz pit exit closes",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "13:20",
+                "label": "v.Granz formation lap, 5-minute signal",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "13:22",
+                "label": "v.Granz formation lap, 3-minute signal",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "13:24",
+                "label": "v.Granz formation lap, 1-minute signal",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "13:24:45",
+                "label": "v.Granz formation lap, 15-second signal",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "13:25",
+                "label": "v.Granz formation lap",
+                "source": "start",
+                "who": [
+                  "ross"
+                ]
+              },
+              {
+                "start": "15:10",
+                "label": "VITA grid reconnaissance starts",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "15:13",
+                "label": "VITA pit exit closes",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "15:20",
+                "label": "VITA formation lap, 5-minute signal",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "15:22",
+                "label": "VITA formation lap, 3-minute signal",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "15:24",
+                "label": "VITA formation lap, 1-minute signal",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "15:24:45",
+                "label": "VITA formation lap, 15-second signal",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "15:25",
+                "label": "VITA formation lap",
+                "source": "start",
+                "who": [
+                  "kyle"
+                ]
+              },
+              {
+                "start": "20:30",
+                "label": "Motorsport gate closes",
+                "source": "timetable"
+              }
+            ]
+          }
+        ],
+        "gaps": [
+          "Friday special sports running, scrutineering, the briefing and qualifying for v.Granz and VITA are on the timetable, but those clocks were not read cleanly. They are omitted rather than guessed (unconfirmed).",
+          "The green light comes after the formation lap, when the red lights go out. It is not a fixed time.",
+          "The motorsport gate is printed as open overnight on Friday 2 Oct and Saturday 3 Oct."
+        ]
+      }
     },
     {
       "id": "2026-mec120-rd3-okayama",
@@ -401,43 +1287,211 @@
           {
             "date": "2026-10-09",
             "items": [
-              { "start": "06:00", "end": "23:00", "label": "Paddock gate", "source": "timetable" },
-              { "start": "08:00", "end": "17:00", "label": "General gate", "source": "timetable" },
-              { "start": "08:00", "end": "17:00", "label": "Car park gate", "source": "timetable" },
-              { "start": "09:30", "end": "10:00", "label": "4T sports running ①", "source": "sports" },
-              { "start": "10:10", "end": "11:10", "label": "MEC special sports running ②", "who": ["ross"], "source": "sports" },
-              { "start": "11:20", "end": "11:50", "label": "4T sports running ③", "source": "sports" },
-              { "start": "12:50", "end": "13:50", "label": "MEC special sports running ④", "who": ["ross"], "source": "sports" },
-              { "start": "14:00", "end": "14:30", "label": "Super kart sports running ⑤", "source": "sports" },
-              { "start": "14:40", "end": "15:10", "label": "4T sports running ⑥", "source": "sports" },
-              { "start": "15:20", "end": "16:20", "label": "MEC special sports running ⑦", "who": ["ross"], "source": "sports" },
-              { "start": "16:30", "end": "17:00", "label": "Super kart sports running ⑧", "source": "sports" }
+              {
+                "start": "06:00",
+                "end": "23:00",
+                "label": "Paddock gate",
+                "source": "timetable"
+              },
+              {
+                "start": "08:00",
+                "end": "17:00",
+                "label": "General gate",
+                "source": "timetable"
+              },
+              {
+                "start": "08:00",
+                "end": "17:00",
+                "label": "Car park gate",
+                "source": "timetable"
+              },
+              {
+                "start": "09:30",
+                "end": "10:00",
+                "label": "4T sports running ①",
+                "source": "sports"
+              },
+              {
+                "start": "10:10",
+                "end": "11:10",
+                "label": "MEC special sports running ②",
+                "who": [
+                  "ross"
+                ],
+                "source": "sports"
+              },
+              {
+                "start": "11:20",
+                "end": "11:50",
+                "label": "4T sports running ③",
+                "source": "sports"
+              },
+              {
+                "start": "12:50",
+                "end": "13:50",
+                "label": "MEC special sports running ④",
+                "who": [
+                  "ross"
+                ],
+                "source": "sports"
+              },
+              {
+                "start": "14:00",
+                "end": "14:30",
+                "label": "Super kart sports running ⑤",
+                "source": "sports"
+              },
+              {
+                "start": "14:40",
+                "end": "15:10",
+                "label": "4T sports running ⑥",
+                "source": "sports"
+              },
+              {
+                "start": "15:20",
+                "end": "16:20",
+                "label": "MEC special sports running ⑦",
+                "who": [
+                  "ross"
+                ],
+                "source": "sports"
+              },
+              {
+                "start": "16:30",
+                "end": "17:00",
+                "label": "Super kart sports running ⑧",
+                "source": "sports"
+              }
             ]
           },
           {
             "date": "2026-10-10",
             "items": [
-              { "start": "06:00", "end": "24:00", "label": "Paddock gate", "source": "timetable" },
-              { "start": "07:00", "end": "17:00", "label": "General gate", "source": "timetable" },
-              { "start": "07:00", "end": "17:00", "label": "Car park gate", "source": "timetable" },
-              { "start": "10:10", "end": "11:10", "label": "MEC special sports running ①, with timing", "who": ["ross"], "source": "sports" },
-              { "start": "13:10", "end": "13:40", "label": "4T running ②, with timing", "source": "sports" },
-              { "start": "13:50", "end": "14:50", "label": "MEC exclusive running, with timing", "who": ["ross"], "source": "sports" },
-              { "start": "14:05", "label": "MEC final: pit exit opens", "who": ["ross"], "source": "start", "unconfirmed": true },
-              { "start": "14:15", "label": "MEC final: pit exit closes", "who": ["ross"], "source": "start", "unconfirmed": true },
-              { "start": "14:20", "label": "MEC final: 5-minute signal", "who": ["ross"], "source": "start", "unconfirmed": true },
-              { "start": "14:22", "label": "MEC final: 3-minute signal", "who": ["ross"], "source": "start", "unconfirmed": true },
-              { "start": "14:24", "label": "MEC final: 1-minute signal", "who": ["ross"], "source": "start", "unconfirmed": true },
-              { "start": "14:25", "label": "MEC final: formation lap", "who": ["ross"], "source": "start", "unconfirmed": true },
-              { "start": "16:25", "end": "16:55", "label": "4T running ③", "source": "sports" }
+              {
+                "start": "06:00",
+                "end": "24:00",
+                "label": "Paddock gate",
+                "source": "timetable"
+              },
+              {
+                "start": "07:00",
+                "end": "17:00",
+                "label": "General gate",
+                "source": "timetable"
+              },
+              {
+                "start": "07:00",
+                "end": "17:00",
+                "label": "Car park gate",
+                "source": "timetable"
+              },
+              {
+                "start": "10:10",
+                "end": "11:10",
+                "label": "MEC special sports running ①, with timing",
+                "who": [
+                  "ross"
+                ],
+                "source": "sports"
+              },
+              {
+                "start": "13:10",
+                "end": "13:40",
+                "label": "4T running ②, with timing",
+                "source": "sports"
+              },
+              {
+                "start": "13:50",
+                "end": "14:50",
+                "label": "MEC exclusive running, with timing",
+                "who": [
+                  "ross"
+                ],
+                "source": "sports"
+              },
+              {
+                "start": "14:05",
+                "label": "MEC final: pit exit opens",
+                "who": [
+                  "ross"
+                ],
+                "source": "start",
+                "unconfirmed": true
+              },
+              {
+                "start": "14:15",
+                "label": "MEC final: pit exit closes",
+                "who": [
+                  "ross"
+                ],
+                "source": "start",
+                "unconfirmed": true
+              },
+              {
+                "start": "14:20",
+                "label": "MEC final: 5-minute signal",
+                "who": [
+                  "ross"
+                ],
+                "source": "start",
+                "unconfirmed": true
+              },
+              {
+                "start": "14:22",
+                "label": "MEC final: 3-minute signal",
+                "who": [
+                  "ross"
+                ],
+                "source": "start",
+                "unconfirmed": true
+              },
+              {
+                "start": "14:24",
+                "label": "MEC final: 1-minute signal",
+                "who": [
+                  "ross"
+                ],
+                "source": "start",
+                "unconfirmed": true
+              },
+              {
+                "start": "14:25",
+                "label": "MEC final: formation lap",
+                "who": [
+                  "ross"
+                ],
+                "source": "start",
+                "unconfirmed": true
+              },
+              {
+                "start": "16:25",
+                "end": "16:55",
+                "label": "4T running ③",
+                "source": "sports"
+              }
             ]
           },
           {
             "date": "2026-10-11",
             "items": [
-              { "start": "06:00", "end": "19:00", "label": "Paddock gate", "source": "timetable" },
-              { "start": "07:30", "end": "17:00", "label": "General gate", "source": "timetable" },
-              { "start": "07:30", "end": "17:00", "label": "Car park gate", "source": "timetable" }
+              {
+                "start": "06:00",
+                "end": "19:00",
+                "label": "Paddock gate",
+                "source": "timetable"
+              },
+              {
+                "start": "07:30",
+                "end": "17:00",
+                "label": "General gate",
+                "source": "timetable"
+              },
+              {
+                "start": "07:30",
+                "end": "17:00",
+                "label": "Car park gate",
+                "source": "timetable"
+              }
             ]
           }
         ],

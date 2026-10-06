@@ -4,7 +4,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import playwright from "playwright";
 import { scrubSeason } from "../lib/prepare.js";
-import { extractInstants, hero, phase, SESSION_BUFFER_MS } from "../lib/time.js";
+import { confirmedRaceStarts, extractInstants, hero, phase } from "../lib/time.js";
 import { createServer } from "../server.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -18,22 +18,20 @@ assert.equal(season.races.some((race) => /not a race/i.test(race.status || "")),
 
 const now = Date.parse("2026-10-02T20:47:00+09:00");
 const view = hero(season.races, now);
-assert.equal(view.mode, "countdown");
+assert.equal(view.mode, "underway");
 assert.equal(view.race.id, "2026-scr4-suzuka-vgranz");
-assert.equal(view.schedule[0].iso, "2026-10-04T13:25:00+09:00");
-assert.equal(view.schedule[0].label, "Race");
-assert.equal(view.schedule[0].unconfirmed, false);
+assert.equal(view.schedule.length, 0);
 
 const scr4 = season.races.find((race) => race.id === "2026-scr4-suzuka-vgranz");
 const duringRace = Date.parse("2026-10-04T14:00:00+09:00");
-const beforeBuffer = Date.parse("2026-10-04T13:25:00+09:00") + SESSION_BUFFER_MS - 1000;
-const afterBuffer = Date.parse("2026-10-04T13:25:00+09:00") + SESSION_BUFFER_MS;
+const beforeClose = Date.parse("2026-10-04T23:29:59+09:00");
+const afterClose = Date.parse("2026-10-04T23:30:00+09:00");
 assert.equal(phase(scr4, duringRace), "current");
 assert.equal(hero(season.races, duringRace).mode, "underway");
 assert.equal(hero(season.races, duringRace).race.id, "2026-scr4-suzuka-vgranz");
-assert.equal(phase(scr4, beforeBuffer), "current");
-assert.equal(phase(scr4, afterBuffer), "past");
-const rolled = hero(season.races, afterBuffer);
+assert.equal(phase(scr4, beforeClose), "current");
+assert.equal(phase(scr4, afterClose), "past");
+const rolled = hero(season.races, afterClose);
 assert.equal(rolled.mode, "tbc");
 assert.equal(rolled.race.id, "2026-mec120-rd3-okayama");
 assert.equal(rolled.schedule.length, 0);
@@ -45,6 +43,9 @@ assert.equal(phase(okayamaRace, Date.parse("2026-10-09T05:00:00+09:00")), "futur
 assert.equal(phase(okayamaRace, Date.parse("2026-10-09T07:00:00+09:00")), "current");
 assert.equal(phase(okayamaRace, Date.parse("2026-10-11T18:00:00+09:00")), "current");
 assert.equal(phase(okayamaRace, Date.parse("2026-10-11T19:00:00+09:00")), "past");
+assert.equal(confirmedRaceStarts(scr4).length, 0);
+const mec1 = season.races.find((race) => race.id === "2026-mec120-rd1-suzuka");
+assert.equal(confirmedRaceStarts(mec1)[0].iso, "2026-07-12T10:34:48+09:00");
 
 const raceText = "Sun 2026-10-04: 13:10 start procedure, about 13:25 JST race start (14:25 AEST), read from a timetable photo, so unconfirmed";
 const raceInstants = extractInstants(raceText, { raceStart: true });
@@ -186,8 +187,14 @@ assert.match(rd2.text, /Penalties and stewards/);
 
 const live = await get("/races/2026-scr4-suzuka-vgranz");
 assert.match(live.text, /class="flag">Unconfirmed/);
-assert.match(live.text, /13:25/);
-assert.match(live.text, /15:25 AEDT/);
+assert.match(live.text, /13:25 JST/);
+assert.match(live.text, /15:25 JST/);
+assert.match(live.text, /formation lap/);
+assert.match(live.text, /class="who">Ross/);
+assert.match(live.text, /class="who">Kyle/);
+assert.match(live.text, /190345/);
+assert.match(live.text, /190806/);
+assert.doesNotMatch(live.text, /15:25 AEDT/);
 assert.doesNotMatch(live.text, /14:25 AEST/);
 assert.match(live.text, /2'18\.414/);
 assert.match(live.text, /P18 of 23 starters/);
@@ -434,6 +441,15 @@ for (const url of urls) {
     const sydney = await page.locator(".timetable [data-sydney]").first().innerText();
     assert.match(sydney, /AEDT/, `${url} Sydney clock`);
     assert.doesNotMatch(sydney, /AEST/, `${url} should be on daylight time`);
+  }
+  if (url === "/races/2026-scr4-suzuka-vgranz") {
+    const formation = await page.locator('[data-iso="2026-10-04T13:25:00+09:00"]').innerText();
+    assert.match(formation, /15:25 AEDT/);
+  }
+  if (url === "/races/kyle-2026-scr2-suzuka-vita") {
+    const formation = await page.locator('[data-iso="2026-06-14T10:45:00+09:00"]').innerText();
+    assert.match(formation, /11:45 AEST/);
+    assert.doesNotMatch(formation, /AEDT/);
   }
   for (const [state, snap] of shots) {
     if (snap.inner !== 390 || snap.scroll > snap.inner || snap.sticky.length || snap.loose.length) {
