@@ -3,6 +3,7 @@ import http from "node:http";
 import path from "node:path";
 import zlib from "node:zlib";
 import { fileURLToPath } from "node:url";
+import { renderCalendar } from "./lib/calendar.js";
 import { loadSeason } from "./lib/prepare.js";
 import {
   findCircuit,
@@ -75,6 +76,21 @@ function handle(req, res) {
   if (bare === "/") return page(renderHome(seasonData(), Date.now(), lang, origin, bare));
   if (bare === "/kyle-wynne") return page(renderKyle(seasonData(), lang, origin, bare));
   if (bare === "/circuits") return page(renderCircuits(seasonData(), lang, origin, bare));
+
+  const ics = bare.match(/^\/races\/([^/]+)\.ics$/);
+  if (ics) {
+    const item = findRace(seasonData(), ics[1]);
+    if (!item) return page(renderNotFound(lang, origin, bare), 404);
+    const body = renderCalendar(item, lang, seasonData().jaStrings);
+    return write(req, res, 200, {
+      "content-type": "text/calendar; charset=utf-8",
+      "content-disposition": `attachment; filename="${item.id}.ics"`,
+      "cache-control": "no-cache",
+      "x-content-type-options": "nosniff",
+      "referrer-policy": "strict-origin-when-cross-origin",
+      "content-language": lang,
+    }, body);
+  }
 
   const race = bare.match(/^\/races\/([^/]+)$/);
   if (race) {

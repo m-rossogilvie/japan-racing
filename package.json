@@ -13,5 +13,8 @@
   },
   "devDependencies": {
     "playwright": "^1.55.0"
+  },
+  "dependencies": {
+    "budoux": "^0.9.3"
   }
 }

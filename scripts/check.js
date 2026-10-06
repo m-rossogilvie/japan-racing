@@ -4,7 +4,9 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import playwright from "playwright";
 import { scrubSeason } from "../lib/prepare.js";
-import { confirmedRaceStarts, extractInstants, hero, phase } from "../lib/time.js";
+import { loadSeason } from "../lib/prepare.js";
+import { renderHome } from "../lib/render.js";
+import { activeSession, confirmedRaceStarts, extractInstants, hero, phase } from "../lib/time.js";
 import { createServer } from "../server.js";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -46,6 +48,25 @@ assert.equal(phase(okayamaRace, Date.parse("2026-10-11T19:00:00+09:00")), "past"
 assert.equal(confirmedRaceStarts(scr4).length, 0);
 const mec1 = season.races.find((race) => race.id === "2026-mec120-rd1-suzuka");
 assert.equal(confirmedRaceStarts(mec1)[0].iso, "2026-07-12T10:34:48+09:00");
+const prepared = loadSeason(root);
+const beforeGreen = Date.parse("2026-07-12T09:00:00+09:00");
+const duringGreen = Date.parse("2026-07-12T11:00:00+09:00");
+assert.equal(hero(prepared.races, beforeGreen).mode, "countdown");
+assert.equal(activeSession(mec1, duringGreen)?.kind, "race");
+const nextHtml = renderHome(prepared, beforeGreen, "en");
+assert.match(nextHtml, /Next: Race/);
+assert.match(nextHtml, /data-sydney/);
+assert.match(nextHtml, /10:34:48/);
+const liveHtml = renderHome(prepared, duringGreen, "en");
+assert.match(liveHtml, /Live now/);
+const tbcHtml = renderHome(prepared, Date.parse("2026-10-06T09:00:00+09:00"), "en");
+assert.match(tbcHtml, /Time TBC/);
+assert.doesNotMatch(tbcHtml, /Live now/);
+assert.doesNotMatch(tbcHtml, /Next: Race/);
+const jaNext = renderHome(prepared, beforeGreen, "ja");
+assert.match(jaNext, /次: 決勝/);
+const jaLiveHtml = renderHome(prepared, duringGreen, "ja");
+assert.match(jaLiveHtml, /開催中/);
 
 const raceText = "Sun 2026-10-04: 13:10 start procedure, about 13:25 JST race start (14:25 AEST), read from a timetable photo, so unconfirmed";
 const raceInstants = extractInstants(raceText, { raceStart: true });
@@ -71,6 +92,7 @@ for (const hex of hexes) {
   assert.ok(allowed.has(hex.toLowerCase()), `unexpected colour ${hex}`);
 }
 assert.equal(/rgb\(|hsl\(|oklch\(/i.test(css), false);
+assert.match(css, /safe-area-inset-bottom/);
 assert.match(css, /Figtree/);
 assert.match(css, /Noto Serif JP/);
 assert.match(css, /Noto Sans JP/);
@@ -130,7 +152,7 @@ assert.match(home.text, /Chris Ssk/);
 assert.match(home.text, /Public domain/);
 assert.match(home.text, /creativecommons\.org\/licenses\/by-sa\/3\.0/);
 assert.equal(leaks.test(home.text), false, "homepage leaked private data");
-const raceIds = [...home.text.matchAll(/href="\/races\/([^"]+)"/g)].map((match) => match[1]);
+const raceIds = [...home.text.matchAll(/href="\/races\/([^"#]+)"/g)].map((match) => match[1]).filter((id) => !id.endsWith(".ics"));
 assert.equal(new Set(raceIds).size, 11);
 const rows = home.text.match(/<a class="race-row"[\s\S]*?<\/a>/g) || [];
 assert.ok(rows.length >= 11);
@@ -175,6 +197,16 @@ assert.match(suzuka.text, /Kyle Wynne/);
 assert.match(suzuka.text, /2'17\.082/);
 assert.match(suzuka.text, /href="\/kyle-wynne"/);
 assert.doesNotMatch(suzuka.text, /does not say which driver/);
+assert.match(suzuka.text, /class="class-head"/);
+assert.match(suzuka.text, /data-ours="v-granz-ama-ama"/);
+assert.match(suzuka.text, /class="pen-badge"/);
+assert.match(suzuka.text, /href="#mec1-suzuka-race-pen-1"/);
+assert.match(suzuka.text, /id="mec1-suzuka-race-pen-1"/);
+assert.match(suzuka.text, /Car 72 · Drive-through · pit-lane speed/);
+assert.match(suzuka.text, /role="tab"/);
+assert.match(suzuka.text, /data-pref="view"/);
+assert.match(suzuka.text, /Add to calendar/);
+assert.match(suzuka.text, /class="jump-hint"/);
 
 const rd2 = await get("/races/2026-mec120-rd2-motegi");
 assert.match(rd2.text, /Not classified/);
@@ -259,15 +291,30 @@ assert.match(live.text, /190992/);
 assert.match(live.text, /金澤 力也/);
 assert.match(live.text, /romanised, unconfirmed/);
 assert.match(live.text, /class="jump"/);
-assert.match(live.text, /class="allcols"/);
+assert.match(live.text, /data-pref="view"/);
 assert.match(live.text, /class="row-jump"/);
 assert.match(live.text, /All columns/);
+assert.match(live.text, />Result</);
+assert.match(css, /overflow-x: clip/);
 
 const okayama = await get("/races/2026-mec120-rd3-okayama");
 assert.match(okayama.text, /class="flag">Unconfirmed/);
 assert.match(okayama.text, /co-driver unconfirmed/i);
 assert.match(okayama.text, /Not published/);
 assert.match(okayama.text, /Time TBC/);
+assert.match(okayama.text, /class="cal-link"/);
+assert.match(okayama.text, /class="next-bar"/);
+const ics = await get("/races/2026-mec120-rd3-okayama.ics");
+assert.equal(ics.status, 200);
+assert.match(ics.type, /text\/calendar/);
+assert.match(ics.text, /BEGIN:VCALENDAR/);
+assert.match(ics.text, /TZID:Asia\/Tokyo/);
+assert.match(ics.text, /DTSTART;TZID=Asia\/Tokyo:20261010T142500/);
+assert.match(ics.text, /STATUS:TENTATIVE/);
+assert.equal(leaks.test(ics.text), false);
+const mecIcs = await get("/races/2026-mec120-rd1-suzuka.ics");
+assert.match(mecIcs.text, /DTSTART;TZID=Asia\/Tokyo:20260712T103448/);
+assert.match(mecIcs.text, /STATUS:CONFIRMED/);
 assert.match(okayama.text, /06:00–23:00 JST/);
 assert.match(okayama.text, /14:25 JST/);
 assert.match(okayama.text, /omitted rather than guessed/);
@@ -355,6 +402,9 @@ assert.match(jaLive.text, /公式結果/);
 assert.match(jaLive.text, /ペナルティと審査委員会の決定/);
 assert.match(jaLive.text, /全項目/);
 assert.match(jaLive.text, /class="jump"/);
+assert.match(jaLive.text, /<wbr>/);
+assert.match(jaLive.text, />結果</);
+assert.match(jaLive.text, /カレンダーに追加/);
 
 const jaKyle = await get("/ja/kyle-wynne");
 assert.equal(jaKyle.status, 200);
@@ -432,10 +482,16 @@ for (const url of urls) {
   await page.evaluate(() => {
     const menu = document.querySelector("#site-menu");
     if (menu) menu.open = false;
-    for (const box of document.querySelectorAll(".allcols input")) box.checked = true;
+    document.querySelectorAll(".sheet-views").forEach((el) => el.setAttribute("data-view", "result"));
   });
-  if (await page.locator(".allcols input").count()) {
-    shots.push(["all-columns", await page.evaluate(measureFit)]);
+  if (await page.locator(".sheet-views").count()) {
+    for (const mode of ["times", "car", "all"]) {
+      await page.evaluate((mode) => {
+        document.querySelectorAll(".sheet-views").forEach((el) => el.setAttribute("data-view", mode));
+        document.querySelectorAll("tbody[hidden]").forEach((el) => { el.hidden = false; });
+      }, mode);
+      shots.push([mode, await page.evaluate(measureFit)]);
+    }
   }
   if (url === "/" || url === "/ja") {
     const sydney = await page.locator(".timetable [data-sydney]").first().innerText();

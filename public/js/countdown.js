@@ -12,6 +12,7 @@
   if (!schedule.length) return;
 
   const label = root.querySelector("[data-session-label]");
+  const state = root.querySelector("[data-state]");
   const units = {
     d: root.querySelector("[data-unit=d]"),
     h: root.querySelector("[data-unit=h]"),
@@ -31,12 +32,14 @@
   function paint() {
     const item = current();
     if (!item) {
+      if (state) state.textContent = root.getAttribute("data-live") || "Live now";
       if (label) label.textContent = root.getAttribute("data-reached") || "Session time reached.";
       for (const key of Object.keys(units)) {
         if (units[key]) units[key].textContent = "00";
       }
       return;
     }
+    if (state && item.next) state.textContent = item.next;
     if (label) {
       label.textContent = item.detail || item.label || "";
       if (item.unconfirmed) {
