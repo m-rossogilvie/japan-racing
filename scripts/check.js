@@ -20,11 +20,9 @@ const now = Date.parse("2026-10-02T20:47:00+09:00");
 const view = hero(season.races, now);
 assert.equal(view.mode, "countdown");
 assert.equal(view.race.id, "2026-scr4-suzuka-vgranz");
-assert.equal(view.schedule[0].iso, "2026-10-03T13:10:00+09:00");
-assert.equal(view.schedule[0].label, "Qualifying");
+assert.equal(view.schedule[0].iso, "2026-10-04T13:25:00+09:00");
+assert.equal(view.schedule[0].label, "Race");
 assert.equal(view.schedule[0].unconfirmed, false);
-assert.equal(view.schedule[1].iso, "2026-10-04T13:25:00+09:00");
-assert.equal(view.schedule[1].unconfirmed, false);
 
 const scr4 = season.races.find((race) => race.id === "2026-scr4-suzuka-vgranz");
 const duringRace = Date.parse("2026-10-04T14:00:00+09:00");
@@ -36,15 +34,17 @@ assert.equal(hero(season.races, duringRace).race.id, "2026-scr4-suzuka-vgranz");
 assert.equal(phase(scr4, beforeBuffer), "current");
 assert.equal(phase(scr4, afterBuffer), "past");
 const rolled = hero(season.races, afterBuffer);
-assert.equal(rolled.mode, "countdown");
+assert.equal(rolled.mode, "tbc");
 assert.equal(rolled.race.id, "2026-mec120-rd3-okayama");
-assert.equal(rolled.schedule[0].label, "Race");
-assert.equal(rolled.schedule[0].iso, "2026-10-10T00:00:00+09:00");
-assert.equal(rolled.schedule[0].dateOnly, true);
-assert.equal(rolled.schedule[0].unconfirmed, true);
+assert.equal(rolled.schedule.length, 0);
 const tuesday = hero(season.races, Date.parse("2026-10-06T09:00:00+09:00"));
 assert.equal(tuesday.race.id, "2026-mec120-rd3-okayama");
-assert.equal(tuesday.mode, "countdown");
+assert.equal(tuesday.mode, "tbc");
+const okayamaRace = season.races.find((race) => race.id === "2026-mec120-rd3-okayama");
+assert.equal(phase(okayamaRace, Date.parse("2026-10-09T05:00:00+09:00")), "future");
+assert.equal(phase(okayamaRace, Date.parse("2026-10-09T07:00:00+09:00")), "current");
+assert.equal(phase(okayamaRace, Date.parse("2026-10-11T18:00:00+09:00")), "current");
+assert.equal(phase(okayamaRace, Date.parse("2026-10-11T19:00:00+09:00")), "past");
 
 const raceText = "Sun 2026-10-04: 13:10 start procedure, about 13:25 JST race start (14:25 AEST), read from a timetable photo, so unconfirmed";
 const raceInstants = extractInstants(raceText, { raceStart: true });
@@ -95,6 +95,15 @@ assert.match(home.text, /新興/);
 assert.match(home.text, /P18 of 23 starters/);
 assert.match(home.text, /class="kicker">Next/);
 assert.match(home.text, /Okayama/);
+assert.match(home.text, /Time TBC/);
+assert.match(home.text, /10:10–11:10 JST/);
+assert.match(home.text, /class="who">Ross/);
+assert.match(home.text, /1790602013\.pdf/);
+assert.match(home.text, /1790602277\.pdf/);
+assert.match(home.text, /1790602193\.pdf/);
+assert.match(home.text, /data-sydney/);
+assert.doesNotMatch(home.text, /Timetable not found/);
+assert.doesNotMatch(home.text, /AEST \(UTC\+10\)/);
 assert.match(home.text, /class="menu-race is-spot" href="\/races\/2026-mec120-rd3-okayama"/);
 assert.match(home.text, /class="flag">Next/);
 assert.doesNotMatch(home.text, /Session clock has passed\./);
@@ -178,6 +187,8 @@ assert.match(rd2.text, /Penalties and stewards/);
 const live = await get("/races/2026-scr4-suzuka-vgranz");
 assert.match(live.text, /class="flag">Unconfirmed/);
 assert.match(live.text, /13:25/);
+assert.match(live.text, /15:25 AEDT/);
+assert.doesNotMatch(live.text, /14:25 AEST/);
 assert.match(live.text, /2'18\.414/);
 assert.match(live.text, /P18 of 23 starters/);
 assert.match(live.text, /shinko1 with COR/);
@@ -249,6 +260,11 @@ const okayama = await get("/races/2026-mec120-rd3-okayama");
 assert.match(okayama.text, /class="flag">Unconfirmed/);
 assert.match(okayama.text, /co-driver unconfirmed/i);
 assert.match(okayama.text, /Not published/);
+assert.match(okayama.text, /Time TBC/);
+assert.match(okayama.text, /06:00–23:00 JST/);
+assert.match(okayama.text, /14:25 JST/);
+assert.match(okayama.text, /omitted rather than guessed/);
+assert.doesNotMatch(okayama.text, /Timetable not found/);
 
 const sugo = await get("/circuits/sugo");
 assert.match(sugo.text, /Chris Ssk/);
@@ -304,6 +320,10 @@ assert.match(jaHome.text, /鈴鹿/);
 assert.match(jaHome.text, /岡山/);
 assert.match(jaHome.text, /class="kicker">次/);
 assert.match(jaHome.text, /class="flag">次/);
+assert.match(jaHome.text, /時刻未定/);
+assert.match(jaHome.text, /パドックゲート/);
+assert.match(jaHome.text, /MEC特別スポーツ走行 ②/);
+assert.match(jaHome.text, /フォーメーションラップ/);
 assert.doesNotMatch(jaHome.text, /進行中/);
 
 const jaLive = await get("/ja/races/2026-scr4-suzuka-vgranz");
@@ -409,6 +429,11 @@ for (const url of urls) {
   });
   if (await page.locator(".allcols input").count()) {
     shots.push(["all-columns", await page.evaluate(measureFit)]);
+  }
+  if (url === "/" || url === "/ja") {
+    const sydney = await page.locator(".timetable [data-sydney]").first().innerText();
+    assert.match(sydney, /AEDT/, `${url} Sydney clock`);
+    assert.doesNotMatch(sydney, /AEST/, `${url} should be on daylight time`);
   }
   for (const [state, snap] of shots) {
     if (snap.inner !== 390 || snap.scroll > snap.inner || snap.sticky.length || snap.loose.length) {

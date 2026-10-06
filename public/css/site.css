@@ -626,6 +626,90 @@ a:focus-visible {
   text-transform: uppercase;
 }
 
+.zones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin: 0.85rem 0 0;
+  font-weight: 500;
+}
+
+.feature-tt { padding-block: 1.5rem 0.2rem; }
+
+.timetable { min-width: 0; max-width: 40rem; }
+
+.tt-day { margin-top: 1.15rem; }
+
+.tt-day h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.tt-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tt-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0.7rem 0;
+  border-top: 1px solid var(--ink);
+}
+
+.tt-day .tt-item:last-child { border-bottom: 1px solid var(--ink); }
+
+.tt-clocks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.8rem;
+  min-width: 0;
+  max-width: 100%;
+  font-weight: 700;
+}
+
+.tt-jst,
+.tt-syd,
+.tt-what,
+.tt-source {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.tt-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.55rem;
+  align-items: center;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.who {
+  display: inline-block;
+  background: var(--red);
+  color: var(--paper);
+  font-weight: 700;
+  font-size: var(--label);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  padding: 0.12rem 0.4rem;
+}
+
+.tt-gaps {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.tt-gaps li { margin: 0.4rem 0; }
+
 .block { padding-block: 2rem 0.4rem; }
 
 .calendar { margin-top: 1.2rem; }

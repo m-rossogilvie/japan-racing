@@ -2,7 +2,7 @@
   "driver": "Ross Ogilvie",
   "season": 2026,
   "generated": "2026-10-02 (AEST)",
-  "timezone_note": "Session times are given in JST (UTC+9) with AEST (UTC+10) in brackets where useful.",
+  "timezone_note": "Session times are stored in Japan Standard Time (UTC+9). Where a Sydney clock is shown, the browser calculates it for Australia/Sydney, so the label is AEST or AEDT for that date.",
   "unconfirmed_marker": "Anything marked 'unconfirmed' is an inference or comes from a secondary source.",
   "car": {
     "make_model": "West Racing Cars v.Granz",
@@ -307,7 +307,7 @@
         "weekend": "2026-10-03/2026-10-04",
         "practice": "Fri 2026-10-02 special sports driving: FP1 09:10-09:30 and FP2 13:55-14:15 JST (10:10 and 14:55 AEST)",
         "qualifying": "Sat 2026-10-03 13:10-13:30 JST (14:10-14:30 AEST). Official final result, Suzuka Full Course 5.807 km, fine and dry",
-        "race": "Sun 2026-10-04 13:25 JST race start (14:25 AEST), 8 laps or 25 minutes. Official grid sheet"
+        "race": "Sun 2026-10-04 13:25 JST race start (15:25 AEDT), 8 laps or 25 minutes. Official grid sheet"
       },
       "format": "Sprint race: 8 laps or 25 minutes",
       "class": "v.Granz",
@@ -380,7 +380,73 @@
       "circuit_id": "okayama",
       "dates": {
         "weekend": "2026-10-10/2026-10-11",
-        "race": "The Okayama provisional calendar marks 'MEC120 10/10' (Saturday), so the race may be on Sat 10 Oct (unconfirmed). Timetable not found"
+        "race": "The green-light start is not a fixed clock. Official notice No.7 gives the formation lap; the notice does not print the calendar date."
+      },
+      "timetable": {
+        "sources": {
+          "timetable": {
+            "label": "Official timetable, notice No.1 (28 Sep 2026)",
+            "url": "https://www.okayama-international-circuit.jp/php/public_info_pdf/1790602013.pdf"
+          },
+          "sports": {
+            "label": "MEC special sports running notice",
+            "url": "https://www.okayama-international-circuit.jp/php/public_info_pdf/1790602277.pdf"
+          },
+          "start": {
+            "label": "MEC final start procedure, notice No.7 (28 Sep 2026)",
+            "url": "https://www.okayama-international-circuit.jp/php/public_info_pdf/1790602193.pdf"
+          }
+        },
+        "days": [
+          {
+            "date": "2026-10-09",
+            "items": [
+              { "start": "06:00", "end": "23:00", "label": "Paddock gate", "source": "timetable" },
+              { "start": "08:00", "end": "17:00", "label": "General gate", "source": "timetable" },
+              { "start": "08:00", "end": "17:00", "label": "Car park gate", "source": "timetable" },
+              { "start": "09:30", "end": "10:00", "label": "4T sports running ①", "source": "sports" },
+              { "start": "10:10", "end": "11:10", "label": "MEC special sports running ②", "who": ["ross"], "source": "sports" },
+              { "start": "11:20", "end": "11:50", "label": "4T sports running ③", "source": "sports" },
+              { "start": "12:50", "end": "13:50", "label": "MEC special sports running ④", "who": ["ross"], "source": "sports" },
+              { "start": "14:00", "end": "14:30", "label": "Super kart sports running ⑤", "source": "sports" },
+              { "start": "14:40", "end": "15:10", "label": "4T sports running ⑥", "source": "sports" },
+              { "start": "15:20", "end": "16:20", "label": "MEC special sports running ⑦", "who": ["ross"], "source": "sports" },
+              { "start": "16:30", "end": "17:00", "label": "Super kart sports running ⑧", "source": "sports" }
+            ]
+          },
+          {
+            "date": "2026-10-10",
+            "items": [
+              { "start": "06:00", "end": "24:00", "label": "Paddock gate", "source": "timetable" },
+              { "start": "07:00", "end": "17:00", "label": "General gate", "source": "timetable" },
+              { "start": "07:00", "end": "17:00", "label": "Car park gate", "source": "timetable" },
+              { "start": "10:10", "end": "11:10", "label": "MEC special sports running ①, with timing", "who": ["ross"], "source": "sports" },
+              { "start": "13:10", "end": "13:40", "label": "4T running ②, with timing", "source": "sports" },
+              { "start": "13:50", "end": "14:50", "label": "MEC exclusive running, with timing", "who": ["ross"], "source": "sports" },
+              { "start": "14:05", "label": "MEC final: pit exit opens", "who": ["ross"], "source": "start", "unconfirmed": true },
+              { "start": "14:15", "label": "MEC final: pit exit closes", "who": ["ross"], "source": "start", "unconfirmed": true },
+              { "start": "14:20", "label": "MEC final: 5-minute signal", "who": ["ross"], "source": "start", "unconfirmed": true },
+              { "start": "14:22", "label": "MEC final: 3-minute signal", "who": ["ross"], "source": "start", "unconfirmed": true },
+              { "start": "14:24", "label": "MEC final: 1-minute signal", "who": ["ross"], "source": "start", "unconfirmed": true },
+              { "start": "14:25", "label": "MEC final: formation lap", "who": ["ross"], "source": "start", "unconfirmed": true },
+              { "start": "16:25", "end": "16:55", "label": "4T running ③", "source": "sports" }
+            ]
+          },
+          {
+            "date": "2026-10-11",
+            "items": [
+              { "start": "06:00", "end": "19:00", "label": "Paddock gate", "source": "timetable" },
+              { "start": "07:30", "end": "17:00", "label": "General gate", "source": "timetable" },
+              { "start": "07:30", "end": "17:00", "label": "Car park gate", "source": "timetable" }
+            ]
+          }
+        ],
+        "gaps": [
+          "Briefing, scrutineering, official qualifying, the green-light race start, the race finish and the podium have rows on the official timetable, but those clocks were not read cleanly. They are omitted rather than guessed (unconfirmed).",
+          "Friday 9 Oct MEC special sports running is not timed. Saturday 10 Oct MEC sessions on the sports notice are timed.",
+          "The MEC final start procedure clocks are from official notice No.7. That notice does not print the calendar date, so listing them on Sat 10 Oct follows the provisional calendar mark 'MEC120 10/10' and stays unconfirmed. The green light comes after the formation lap and is not a fixed time.",
+          "Vehicles and equipment must come in while the gates are open."
+        ]
       },
       "format": "120-minute endurance race",
       "class": "v.Granz Ama-Ama (unconfirmed for this round)",
@@ -393,7 +459,10 @@
       "results": {},
       "sources": [
         "https://vita-club.co.jp/mec120/ (2026 MEC120 calendar)",
-        "https://www.okayama-international-circuit.jp/race_calendar/2026/2026-4_race.pdf (provisional calendar, 4 Feb 2026 version)"
+        "https://www.okayama-international-circuit.jp/race_calendar/2026/2026-4_race.pdf (provisional calendar, 4 Feb 2026 version)",
+        "https://www.okayama-international-circuit.jp/php/public_info_pdf/1790602013.pdf (official timetable, notice No.1, 28 Sep 2026)",
+        "https://www.okayama-international-circuit.jp/php/public_info_pdf/1790602277.pdf (MEC special sports running, 9–10 Oct)",
+        "https://www.okayama-international-circuit.jp/php/public_info_pdf/1790602193.pdf (MEC final start procedure, notice No.7, 28 Sep 2026)"
       ]
     },
     {
